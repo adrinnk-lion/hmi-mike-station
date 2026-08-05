@@ -1,0 +1,36 @@
+.gallery {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-40) var(--space-24);
+  font-family: var(--font-family-base);
+  color: var(--color-neutral-90);
+}
+
+.gallery h1 {
+  font-size: 24px;
+  margin-bottom: var(--space-8);
+}
+
+.gallery-intro {
+  color: var(--color-neutral-70);
+  margin-bottom: var(--space-40);
+  max-width: 640px;
+}
+
+.gallery-section {
+  margin-bottom: var(--space-40);
+}
+
+.gallery-section h2 {
+  font-size: 16px;
+  border-bottom: var(--space-1) solid var(--color-neutral-30);
+  padding-bottom: var(--space-8);
+  margin-bottom: var(--space-16);
+}
+
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-16);
+}

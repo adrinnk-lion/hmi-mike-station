@@ -1,0 +1,115 @@
+/*
+  Design tokens — generated from the HMI Design System Figma file.
+  Two tiers, matching the file's own structure:
+    1. Primitives — raw values (--color-neutral-40, --space-12)
+    2. Semantic  — role-based, aliasing primitives (--button-primary-bg)
+  Naming mirrors the codeSyntax convention set on the Figma variables themselves
+  (see the design-token-hygiene skill) so these names match what Dev Mode shows.
+*/
+
+:root {
+  /* ---------- Primitives: color ---------- */
+  --color-neutral-0: #ffffff;
+  --color-neutral-10: #f5f5f5;
+  --color-neutral-20: #f0f0f0;
+  --color-neutral-30: #e8e8e8;
+  --color-neutral-40: #dddddd;
+  --color-neutral-50: #c8c8c8;
+  --color-neutral-60: #919191;
+  --color-neutral-70: #686868;
+  --color-neutral-80: #3e3e3e;
+  --color-neutral-90: #1e1e1e;
+  --color-neutral-100: #000000;
+
+  --color-success-10: #e8fcf1;
+  --color-success-40: #419e6a;
+  --color-success-60: #00632b;
+
+  --color-info-40: #4d82f3;
+  --color-info-60: #2563eb;
+
+  --color-warning-40: #f1ba27;
+  --color-warning-60: #976400;
+
+  --color-error-10: #ffebeb;
+  --color-error-40: #d83232;
+  --color-error-60: #b01212;
+
+  /* ---------- Primitives: spacing ---------- */
+  --space-none: 0px;
+  --space-half: 0.5px;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-32: 32px;
+  --space-36: 36px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-60: 60px;
+
+  /* ---------- Semantic: buttons ---------- */
+  --button-primary-bg: var(--color-neutral-40);
+  --button-primary-bg-pressed: var(--color-neutral-50);
+  --button-primary-bg-disabled: var(--color-neutral-30);
+  --button-primary-border: var(--color-neutral-50);
+  --button-primary-text: var(--color-neutral-80);
+  --button-primary-text-disabled: var(--color-neutral-50);
+
+  --button-secondary-bg: var(--color-neutral-0);
+  --button-secondary-bg-pressed: var(--color-neutral-30);
+  --button-secondary-bg-disabled: var(--color-neutral-30);
+  --button-secondary-border: var(--color-neutral-50);
+  --button-secondary-text: var(--color-neutral-80);
+  --button-secondary-text-disabled: var(--color-neutral-50);
+
+  --button-destructive-bg: var(--color-error-40);
+  --button-destructive-bg-pressed: var(--color-neutral-50);
+  --button-destructive-bg-disabled: var(--color-neutral-30);
+  --button-destructive-border: var(--color-error-60);
+  --button-destructive-text: var(--color-neutral-0);
+  --button-destructive-text-disabled: var(--color-neutral-50);
+
+  /* ---------- Semantic: alerts ---------- */
+  --alerts-bg-error: var(--color-error-10);
+  --alerts-text-error: var(--color-error-60);
+  --alerts-bg-success: var(--color-success-10);
+  --alerts-text-success: var(--color-success-60);
+  --alerts-bg-warning: #fff5d5;
+  --alerts-text-warning: var(--color-warning-60);
+  --alerts-bg-info: #d3e1fe;
+  --alerts-text-info: var(--color-info-60);
+
+  /* ---------- Semantic: badges ---------- */
+  --badge-error-bg: var(--color-error-10);
+  --badge-error-border: var(--color-error-40);
+  --badge-error-text: var(--color-neutral-90);
+  --badge-success-bg: var(--color-success-10);
+  --badge-success-border: var(--color-success-40);
+  --badge-success-text: var(--color-success-60);
+  --badge-pending-bg: var(--color-neutral-40);
+  --badge-pending-border: var(--color-neutral-50);
+  --badge-default-bg: var(--color-neutral-0);
+  --badge-default-border: var(--color-neutral-50);
+  --badge-default-text: var(--color-neutral-90);
+
+  --badge-testtype-error-bg: var(--color-error-10);
+  --badge-testtype-error-border: var(--color-error-60);
+  --badge-testtype-error-text: var(--color-error-60);
+  --badge-testtype-normal-bg: var(--color-neutral-50);
+  --badge-testtype-normal-text: var(--color-neutral-80);
+
+  /* ---------- Semantic: card ---------- */
+  --card-bg: var(--color-neutral-40);
+  --card-header-text: #212121;
+  --card-value-text: #000000;
+
+  /* ---------- Typography ---------- */
+  --font-family-base: "Segoe UI", system-ui, -apple-system, sans-serif;
+}

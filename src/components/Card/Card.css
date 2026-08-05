@@ -1,0 +1,44 @@
+.hmi-card {
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-12);
+  font-family: var(--font-family-base);
+}
+
+.hmi-card__header {
+  color: var(--card-header-text);
+  font-weight: 600;
+  margin: 0;
+}
+
+.hmi-card__value {
+  color: var(--card-value-text);
+  text-align: right;
+  margin: 0;
+}
+
+.hmi-card--large {
+  width: 311px;
+  height: 64px;
+  gap: 6px; /* not on the primitive spacing scale (4, 8...) — see note in README */
+}
+.hmi-card--large .hmi-card__header { font-size: 14px; line-height: 21px; }
+.hmi-card--large .hmi-card__value { font-size: 18px; }
+
+.hmi-card--medium {
+  width: 218px;
+  height: 52px;
+  gap: var(--space-2);
+}
+.hmi-card--medium .hmi-card__header { font-size: 12px; line-height: 18px; }
+.hmi-card--medium .hmi-card__value { font-size: 15px; line-height: 22px; }
+
+.hmi-card--small {
+  width: 150px;
+  height: 60px;
+  gap: var(--space-4);
+}
+.hmi-card--small .hmi-card__header { font-size: 12px; line-height: 18px; }
+.hmi-card--small .hmi-card__value { font-size: 15px; line-height: 22px; }

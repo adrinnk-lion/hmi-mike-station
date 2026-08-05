@@ -1,0 +1,54 @@
+.hmi-badge {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-10);
+  height: 40px;
+  width: 200px;
+  padding: 0 var(--space-12);
+  border-radius: 8px;
+  border: var(--space-1) solid transparent;
+}
+
+.hmi-badge--default {
+  background: var(--badge-default-bg);
+  border-color: var(--badge-default-border);
+  color: var(--badge-default-text);
+}
+.hmi-badge--pending {
+  background: var(--badge-pending-bg);
+  border-color: var(--badge-pending-border);
+  color: var(--badge-default-text);
+}
+.hmi-badge--success {
+  background: var(--badge-success-bg);
+  border-color: var(--badge-success-border);
+  color: var(--badge-success-text);
+}
+.hmi-badge--error {
+  background: var(--badge-error-bg);
+  border-color: var(--badge-error-border);
+  color: var(--badge-error-text);
+}
+
+/* Test-type badges (battery / HiPot / analyzer) are compact, no icon */
+.hmi-badge--testtype {
+  width: auto;
+  height: 27px;
+  font-size: 14px;
+  line-height: 21px;
+}
+.hmi-badge--testtype-normal {
+  background: var(--badge-testtype-normal-bg);
+  color: var(--badge-testtype-normal-text);
+  border-color: transparent;
+}
+.hmi-badge--testtype-error {
+  background: var(--badge-testtype-error-bg);
+  color: var(--badge-testtype-error-text);
+  border-color: var(--badge-testtype-error-border);
+}

@@ -1,0 +1,84 @@
+.hmi-button {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  border-radius: 100px;
+  border-style: solid;
+  border-width: var(--space-1);
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.hmi-button:focus-visible {
+  outline: 2px solid var(--color-info-40);
+  outline-offset: 2px;
+}
+
+/* ---- Sizes ---- */
+.hmi-button--large {
+  width: 300px;
+  height: 50px;
+  padding: var(--space-20);
+  font-size: 20px;
+  line-height: 29px;
+}
+.hmi-button--regular {
+  width: 180px;
+  height: 45px;
+  padding: var(--space-20);
+  font-size: 16px;
+  line-height: 24px;
+}
+.hmi-button--small {
+  width: 150px;
+  height: 24px;
+  padding: var(--space-4) var(--space-20);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/* ---- State: primary ---- */
+.hmi-button--primary {
+  background: var(--button-primary-bg);
+  border-color: var(--button-primary-border);
+  color: var(--button-primary-text);
+}
+.hmi-button--primary.hmi-button--pressed {
+  background: var(--button-primary-bg-pressed);
+  border-color: var(--button-primary-bg-pressed);
+}
+.hmi-button--primary:disabled {
+  background: var(--button-primary-bg-disabled);
+  color: var(--button-primary-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ---- State: secondary ---- */
+.hmi-button--secondary {
+  background: var(--button-secondary-bg);
+  border-color: var(--button-secondary-border);
+  color: var(--button-secondary-text);
+}
+.hmi-button--secondary.hmi-button--pressed {
+  background: var(--button-secondary-bg-pressed);
+}
+.hmi-button--secondary:disabled {
+  background: var(--button-secondary-bg-disabled);
+  color: var(--button-secondary-text-disabled);
+  cursor: not-allowed;
+}
+
+/* ---- State: destructive ---- */
+.hmi-button--destructive {
+  background: var(--button-destructive-bg);
+  border-color: var(--button-destructive-border);
+  color: var(--button-destructive-text);
+}
+.hmi-button--destructive.hmi-button--pressed {
+  background: var(--button-destructive-bg-pressed);
+  border-color: var(--button-destructive-bg-pressed);
+}
+.hmi-button--destructive:disabled {
+  background: var(--button-destructive-bg-disabled);
+  color: var(--button-destructive-text-disabled);
+  cursor: not-allowed;
+}
