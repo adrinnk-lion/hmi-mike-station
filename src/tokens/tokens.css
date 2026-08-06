@@ -39,6 +39,20 @@
   --color-error-60: #b01212;
   --color-error-80: #8c0000;
 
+  /* "Lion Yellow" accent scale — used sparingly for accented design elements */
+  --color-brand-10: #fff5dc;
+  --color-brand-20: #ffecb9;
+  --color-brand-30: #ffe297;
+  --color-brand-40: #ffd974;
+  --color-brand-50: #ffd462;
+  --color-brand-60: #ffcf51;
+  --color-brand-70: #e6ba49;
+  --color-brand-80: #b39139;
+  --color-brand-90: #724b00;
+  --color-brand-100: #4c3e18;
+
+  --color-battery-green: #6bd956;
+
   /* ---------- Primitives: spacing ---------- */
   --space-none: 0px;
   --space-half: 0.5px;
@@ -153,6 +167,24 @@
   --status-card-bg: var(--color-neutral-30);
   --status-card-border: var(--color-neutral-50);
   --status-card-header-text: var(--color-neutral-80);
+
+  /* ---------- Semantic: input field ---------- */
+  --input-label: var(--color-neutral-80);
+  --input-text: var(--color-neutral-70);
+  --input-bg: var(--color-neutral-0);
+  --input-default-border: var(--color-neutral-40);
+  --input-active-border: var(--color-brand-80); /* "Lion Yellow" accent scale */
+  --input-error-border: var(--color-error-60);
+  --input-error-description: var(--color-error-60);
+  --input-disabled-bg: var(--color-neutral-30);
+  --input-disabled-border: var(--color-neutral-40);
+  --input-disabled-text: var(--color-neutral-50);
+
+  /* ---------- Semantic: modal ---------- */
+  --modal-bg: var(--color-neutral-0);
+  --modal-border: var(--color-neutral-60);
+  --modal-title-text: var(--color-neutral-100);
+  --modal-body-text: var(--color-neutral-80);
 
   /* ---------- Typography ---------- */
   --font-family-base: "Segoe UI", system-ui, -apple-system, sans-serif;

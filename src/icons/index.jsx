@@ -64,7 +64,7 @@ export function InfoCircleIcon({ size = 20 }) {
 */
 export function CheckSolidIcon({ size = 25 }) {
   return (
-    <svg width={size * 0.7} height={size * 0.5} viewBox="0 0 17.5 12.5" fill="none" aria-hidden="true">
+    <svg width={size * 0.7} height={size * 0.5} viewBox="0 0 17.5 12.5" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
       <path fillRule="evenodd" clipRule="evenodd" d="M17.1339 0.366117C17.622 0.854272 17.622 1.64573 17.1339 2.13388L7.13388 12.1339C6.64573 12.622 5.85427 12.622 5.36612 12.1339L0.366117 7.13388C-0.122039 6.64573 -0.122039 5.85427 0.366117 5.36612C0.854272 4.87796 1.64573 4.87796 2.13388 5.36612L6.25 9.48223L15.3661 0.366117C15.8543 -0.122039 16.6457 -0.122039 17.1339 0.366117Z" fill="currentColor" />
     </svg>
   );
@@ -72,8 +72,78 @@ export function CheckSolidIcon({ size = 25 }) {
 
 export function XSolidIcon({ size = 25 }) {
   return (
-    <svg width={size * 0.6} height={size * 0.6} viewBox="0 0 15 15" fill="none" aria-hidden="true">
+    <svg width={size * 0.6} height={size * 0.6} viewBox="0 0 15 15" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
       <path fillRule="evenodd" clipRule="evenodd" d="M0.366117 0.366117C0.854272 -0.122039 1.64573 -0.122039 2.13388 0.366117L7.5 5.73223L12.8661 0.366117C13.3543 -0.122039 14.1457 -0.122039 14.6339 0.366117C15.122 0.854272 15.122 1.64573 14.6339 2.13388L9.26777 7.5L14.6339 12.8661C15.122 13.3543 15.122 14.1457 14.6339 14.6339C14.1457 15.122 13.3543 15.122 12.8661 14.6339L7.5 9.26777L2.13388 14.6339C1.64573 15.122 0.854272 15.122 0.366117 14.6339C-0.122039 14.1457 -0.122039 13.3543 0.366117 12.8661L5.73223 7.5L0.366117 2.13388C-0.122039 1.64573 -0.122039 0.854272 0.366117 0.366117Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+/*
+  Real Figma asset (Icon/Solid/user), exported from the Input Field
+  component's left icon. Box is 20x20 per the design's icon container,
+  with the glyph filling it per Figma's inset (62.8%x75.94%).
+*/
+export function UserSolidIcon({ size = 20 }) {
+  return (
+    <svg width={size * 0.628} height={size * 0.7594} viewBox="0 0 12.5586 15.1868" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path d="M7.72804 6.87271C10.3958 6.87271 12.5586 9.01048 12.5586 11.6473V13.2772C12.5585 14.3318 11.6936 15.1868 10.6266 15.1868H1.93201C0.865028 15.1867 9.12092e-05 14.3318 0 13.2772V11.6473C0 9.01048 2.16284 6.87271 4.83055 6.87271H7.72804Z" fill="currentColor" />
+      <path d="M6.28141 0C7.93467 0 9.27534 1.32513 9.27534 2.95922C9.2751 4.5931 7.93452 5.91738 6.28141 5.91738C4.62842 5.91726 3.28879 4.59302 3.28855 2.95922C3.28855 1.32521 4.62827 0.000127425 6.28141 0Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+/*
+  Real Figma asset (Icon/Solid/exclamation), exported from the Modal
+  component's default icon slot. Box is 85x85 per the design's icon
+  container, with the glyph filling it per Figma's inset (top 10.4%,
+  right/left 12.08%, bottom 20%) — fill uses currentColor like the rest
+  of this file's solid icons.
+*/
+export function ExclamationTriangleSolidIcon({ size = 85 }) {
+  return (
+    <svg width={size * 0.7584} height={size * 0.696} viewBox="0 0 64.4573 59.1623" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M24.8203 4.33278C28.0699 -1.44426 36.3875 -1.44426 39.6371 4.33278L63.3534 46.4951C66.5406 52.1612 62.446 59.1623 55.945 59.1623H8.51238C2.01135 59.1623 -2.08322 52.1612 1.10398 46.4951L24.8203 4.33278ZM36.4783 46.4128C36.4783 48.76 34.5755 50.6628 32.2283 50.6628C29.8811 50.6628 27.9783 48.76 27.9783 46.4128C27.9783 44.0656 29.8811 42.1628 32.2283 42.1628C34.5755 42.1628 36.4783 44.0656 36.4783 46.4128ZM32.2283 12.4128C29.8811 12.4128 27.9783 14.3156 27.9783 16.6628V29.4128C27.9783 31.76 29.8811 33.6628 32.2283 33.6628C34.5755 33.6628 36.4783 31.76 36.4783 29.4128V16.6628C36.4783 14.3156 34.5755 12.4128 32.2283 12.4128Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+/*
+  Real Figma assets (Icon/Solid/information, x-circle, check-circle,
+  exclamation-circle), exported from the icon library. Each is a 24px box
+  with a circular glyph filling it per Figma's inset — 8.33% for the
+  information icon (visible size = box * 0.8334, matching its 20x20
+  natural size) and 10% for the three circle icons (visible size =
+  box * 0.8, matching their 19.2x19.2 natural size). Fill uses currentColor
+  like the rest of this file's solid icons.
+*/
+export function InformationCircleSolidIcon({ size = 24 }) {
+  return (
+    <svg width={size * 0.8334} height={size * 0.8334} viewBox="0 0 20 20" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path d="M10 0C8.02219 0 6.08879 0.58649 4.4443 1.6853C2.79981 2.78412 1.51809 4.3459 0.761209 6.17316C0.00433283 8.00042 -0.1937 10.0111 0.192152 11.9509C0.578004 13.8907 1.53041 15.6725 2.92894 17.0711C4.32746 18.4696 6.10929 19.422 8.0491 19.8078C9.98891 20.1937 11.9996 19.9957 13.8268 19.2388C15.6541 18.4819 17.2159 17.2002 18.3147 15.5557C19.4135 13.9112 20 11.9778 20 10C19.9971 7.34873 18.9426 4.80688 17.0679 2.93215C15.1931 1.05741 12.6513 0.0029116 10 0V0ZM9.5 4C9.79667 4 10.0867 4.08797 10.3334 4.25279C10.58 4.41762 10.7723 4.65188 10.8858 4.92597C10.9994 5.20006 11.0291 5.50166 10.9712 5.79263C10.9133 6.08361 10.7704 6.35088 10.5607 6.56066C10.3509 6.77044 10.0836 6.9133 9.79264 6.97118C9.50167 7.02905 9.20007 6.99935 8.92598 6.88582C8.65189 6.77229 8.41762 6.58003 8.2528 6.33335C8.08798 6.08668 8 5.79667 8 5.5C8 5.10217 8.15804 4.72064 8.43934 4.43934C8.72065 4.15803 9.10218 4 9.5 4ZM12 15H8C7.73479 15 7.48043 14.8946 7.2929 14.7071C7.10536 14.5196 7 14.2652 7 14C7 13.7348 7.10536 13.4804 7.2929 13.2929C7.48043 13.1054 7.73479 13 8 13H9V10H8C7.73479 10 7.48043 9.89464 7.2929 9.7071C7.10536 9.51957 7 9.26521 7 9C7 8.73478 7.10536 8.48043 7.2929 8.29289C7.48043 8.10535 7.73479 8 8 8H10C10.2652 8 10.5196 8.10535 10.7071 8.29289C10.8946 8.48043 11 8.73478 11 9V13H12C12.2652 13 12.5196 13.1054 12.7071 13.2929C12.8946 13.4804 13 13.7348 13 14C13 14.2652 12.8946 14.5196 12.7071 14.7071C12.5196 14.8946 12.2652 15 12 15Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function XCircleSolidIcon({ size = 24 }) {
+  return (
+    <svg width={size * 0.8} height={size * 0.8} viewBox="0 0 19.2 19.2" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M9.6 19.2C14.9019 19.2 19.2 14.9019 19.2 9.6C19.2 4.29807 14.9019 0 9.6 0C4.29807 0 0 4.29807 0 9.6C0 14.9019 4.29807 19.2 9.6 19.2ZM8.04853 6.35147C7.5799 5.88284 6.8201 5.88284 6.35147 6.35147C5.88284 6.8201 5.88284 7.5799 6.35147 8.04853L7.90294 9.6L6.35147 11.1515C5.88284 11.6201 5.88284 12.3799 6.35147 12.8485C6.8201 13.3172 7.5799 13.3172 8.04853 12.8485L9.6 11.2971L11.1515 12.8485C11.6201 13.3172 12.3799 13.3172 12.8485 12.8485C13.3172 12.3799 13.3172 11.6201 12.8485 11.1515L11.2971 9.6L12.8485 8.04853C13.3172 7.5799 13.3172 6.8201 12.8485 6.35147C12.3799 5.88284 11.6201 5.88284 11.1515 6.35147L9.6 7.90294L8.04853 6.35147Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function CheckCircleSolidIcon({ size = 24 }) {
+  return (
+    <svg width={size * 0.8} height={size * 0.8} viewBox="0 0 19.2 19.2" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M9.6 19.2C14.9019 19.2 19.2 14.9019 19.2 9.6C19.2 4.29807 14.9019 0 9.6 0C4.29807 0 0 4.29807 0 9.6C0 14.9019 4.29807 19.2 9.6 19.2ZM14.0485 8.04853C14.5172 7.5799 14.5172 6.8201 14.0485 6.35147C13.5799 5.88284 12.8201 5.88284 12.3515 6.35147L8.4 10.3029L6.84853 8.75147C6.3799 8.28284 5.6201 8.28284 5.15147 8.75147C4.68284 9.2201 4.68284 9.9799 5.15147 10.4485L7.55147 12.8485C8.0201 13.3172 8.7799 13.3172 9.24853 12.8485L14.0485 8.04853Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function ExclamationCircleSolidIcon({ size = 24 }) {
+  return (
+    <svg width={size * 0.8} height={size * 0.8} viewBox="0 0 19.2 19.2" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M19.2 9.6C19.2 14.9019 14.9019 19.2 9.6 19.2C4.29807 19.2 0 14.9019 0 9.6C0 4.29807 4.29807 0 9.6 0C14.9019 0 19.2 4.29807 19.2 9.6ZM10.8 14.4C10.8 15.0627 10.2627 15.6 9.6 15.6C8.93726 15.6 8.4 15.0627 8.4 14.4C8.4 13.7373 8.93726 13.2 9.6 13.2C10.2627 13.2 10.8 13.7373 10.8 14.4ZM9.6 3.6C8.93726 3.6 8.4 4.13726 8.4 4.8V9.6C8.4 10.2627 8.93726 10.8 9.6 10.8C10.2627 10.8 10.8 10.2627 10.8 9.6V4.8C10.8 4.13726 10.2627 3.6 9.6 3.6Z" fill="currentColor" />
     </svg>
   );
 }

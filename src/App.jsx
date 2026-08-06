@@ -7,9 +7,56 @@ import StatusBar from './components/StatusBar/StatusBar';
 import StatusDot from './components/StatusIndicator/StatusDot';
 import StatusLabel from './components/StatusIndicator/StatusLabel';
 import StatusCard from './components/StatusIndicator/StatusCard';
+import InputField from './components/InputField/InputField';
+import Modal from './components/Modal/Modal';
 import Card from './components/Card/Card';
 import Alert from './components/Alert/Alert';
+import {
+  ExclamationTriangleSolidIcon,
+  XCircleSolidIcon,
+  ExclamationCircleSolidIcon,
+  InformationCircleSolidIcon,
+} from './icons';
 import './App.css';
+
+const MODAL_EXAMPLES = {
+  alert: {
+    icon: <ExclamationTriangleSolidIcon size={85} />,
+    iconColor: 'var(--color-error-40)',
+    title: 'Error or Alert Message',
+    errorCode: 'Error Code: 000000',
+    subtext: 'Subtext for errors, alerts, or other information relating to the modal.',
+    cancelText: 'Cancel',
+    confirmText: 'Retest',
+  },
+  error: {
+    icon: <XCircleSolidIcon size={85} />,
+    iconColor: 'var(--color-error-40)',
+    title: 'Test Failed',
+    errorCode: 'Error Code: 000000',
+    subtext: 'A HiPot test failed on station 3. Retest required before continuing.',
+    cancelText: 'Cancel',
+    confirmText: 'Retest',
+  },
+  warning: {
+    icon: <ExclamationCircleSolidIcon size={85} />,
+    iconColor: 'var(--color-warning-40)',
+    title: 'Connection Unstable',
+    errorCode: 'Warning Code: 000000',
+    subtext: 'Analyzer connection is unstable — readings may be inaccurate.',
+    cancelText: 'Dismiss',
+    confirmText: 'Continue',
+  },
+  info: {
+    icon: <InformationCircleSolidIcon size={85} />,
+    iconColor: 'var(--color-info-60)',
+    title: 'Firmware Update Available',
+    errorCode: 'Update ID: 000000',
+    subtext: 'A new firmware update is ready to install for this test station.',
+    cancelText: 'Later',
+    confirmText: 'Install Now',
+  },
+};
 
 function Section({ title, children }) {
   return (
@@ -116,6 +163,28 @@ export default function App() {
         <StatusCard header="Header Text" state="error" status="Error" />
         <StatusCard header="Header Text" state="warning" status="Warning" />
         <StatusCard header="Header Text" state="idle" status="Idle" dot={false} />
+      </Section>
+
+      <Section title="Input Fields">
+        <InputField state="default" />
+        <InputField state="active" />
+        <InputField state="error" descriptionText="This field is required" />
+        <InputField state="disabled" />
+      </Section>
+
+      <Section title="Modal — icon instance-swap examples">
+        {Object.values(MODAL_EXAMPLES).map((example) => (
+          <Modal
+            key={example.title}
+            inline
+            icon={<span style={{ color: example.iconColor }}>{example.icon}</span>}
+            title={example.title}
+            errorCode={example.errorCode}
+            subtext={example.subtext}
+            cancelText={example.cancelText}
+            confirmText={example.confirmText}
+          />
+        ))}
       </Section>
 
       <Section title="Cards">

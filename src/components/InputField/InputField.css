@@ -1,0 +1,115 @@
+.hmi-input-field {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: 398px;
+  font-family: var(--font-family-base);
+}
+
+.hmi-input-field__label {
+  display: block;
+  width: 100%;
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--input-label);
+}
+.hmi-input-field--disabled .hmi-input-field__label {
+  color: var(--input-disabled-text);
+}
+
+.hmi-input-field__box {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  width: 100%;
+  height: 48px;
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: var(--space-1) solid var(--input-default-border);
+  background: var(--input-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.hmi-input-field--active .hmi-input-field__box,
+.hmi-input-field--default .hmi-input-field__box:focus-within {
+  border-color: var(--input-active-border);
+}
+.hmi-input-field--error .hmi-input-field__box {
+  border-color: var(--input-error-border);
+}
+.hmi-input-field--disabled .hmi-input-field__box {
+  background: var(--input-disabled-bg);
+  border-color: var(--input-disabled-border);
+}
+
+.hmi-input-field__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--input-text);
+}
+.hmi-input-field--disabled .hmi-input-field__icon {
+  color: var(--input-disabled-text);
+}
+
+.hmi-input-field__input {
+  flex: 1 0 0;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--input-text);
+}
+.hmi-input-field__input::placeholder {
+  color: var(--input-text);
+  opacity: 1;
+}
+.hmi-input-field--disabled .hmi-input-field__input {
+  color: var(--input-disabled-text);
+}
+.hmi-input-field--disabled .hmi-input-field__input::placeholder {
+  color: var(--input-disabled-text);
+}
+
+.hmi-input-field__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--input-text);
+}
+.hmi-input-field--disabled .hmi-input-field__clear {
+  color: var(--input-disabled-text);
+  cursor: not-allowed;
+}
+
+.hmi-input-field__description {
+  width: 100%;
+  margin: 0;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--input-text);
+}
+.hmi-input-field--error .hmi-input-field__description {
+  color: var(--input-error-description);
+}
+.hmi-input-field--disabled .hmi-input-field__description {
+  color: var(--input-disabled-text);
+}
