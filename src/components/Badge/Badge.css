@@ -52,3 +52,47 @@
   color: var(--badge-testtype-error-text);
   border-color: var(--badge-testtype-error-border);
 }
+
+/* ---- Round badges (status pills) ---- */
+.hmi-round-badge {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  padding: 0 var(--space-12);
+  border-radius: 100px;
+  border: var(--space-1) solid transparent;
+}
+.hmi-round-badge--regular {
+  height: 35px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.hmi-round-badge--small {
+  height: 28px;
+  font-size: 14px;
+  line-height: 21px;
+}
+.hmi-round-badge--running {
+  background: var(--badge-round-info-bg);
+  border-color: var(--badge-round-info-border);
+  color: var(--badge-round-info-text);
+}
+.hmi-round-badge--pass {
+  background: var(--badge-round-success-bg);
+  border-color: var(--badge-round-success-border);
+  color: var(--badge-round-success-text);
+}
+.hmi-round-badge--error {
+  background: var(--badge-round-warning-bg);
+  border-color: var(--badge-round-warning-border);
+  color: var(--badge-round-warning-text);
+}
+.hmi-round-badge--fail,
+.hmi-round-badge--stopped {
+  background: var(--badge-round-error-bg);
+  border-color: var(--badge-round-error-border);
+  color: var(--badge-round-error-text);
+}

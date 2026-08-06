@@ -20,14 +20,14 @@
 .hmi-button--large {
   width: 300px;
   height: 50px;
-  padding: var(--space-20);
+  padding: var(--space-8) var(--space-20);
   font-size: 20px;
   line-height: 29px;
 }
 .hmi-button--regular {
   width: 180px;
   height: 45px;
-  padding: var(--space-20);
+  padding: var(--space-8) var(--space-20);
   font-size: 16px;
   line-height: 24px;
 }
@@ -45,12 +45,14 @@
   border-color: var(--button-primary-border);
   color: var(--button-primary-text);
 }
-.hmi-button--primary.hmi-button--pressed {
+.hmi-button--primary.hmi-button--pressed,
+.hmi-button--primary:active:not(:disabled) {
   background: var(--button-primary-bg-pressed);
   border-color: var(--button-primary-bg-pressed);
 }
 .hmi-button--primary:disabled {
   background: var(--button-primary-bg-disabled);
+  border-color: var(--button-border-disabled);
   color: var(--button-primary-text-disabled);
   cursor: not-allowed;
 }
@@ -61,11 +63,13 @@
   border-color: var(--button-secondary-border);
   color: var(--button-secondary-text);
 }
-.hmi-button--secondary.hmi-button--pressed {
+.hmi-button--secondary.hmi-button--pressed,
+.hmi-button--secondary:active:not(:disabled) {
   background: var(--button-secondary-bg-pressed);
 }
 .hmi-button--secondary:disabled {
   background: var(--button-secondary-bg-disabled);
+  border-color: var(--button-border-disabled);
   color: var(--button-secondary-text-disabled);
   cursor: not-allowed;
 }
@@ -76,12 +80,14 @@
   border-color: var(--button-destructive-border);
   color: var(--button-destructive-text);
 }
-.hmi-button--destructive.hmi-button--pressed {
+.hmi-button--destructive.hmi-button--pressed,
+.hmi-button--destructive:active:not(:disabled) {
   background: var(--button-destructive-bg-pressed);
-  border-color: var(--button-destructive-bg-pressed);
+  border-color: var(--button-destructive-border-pressed);
 }
 .hmi-button--destructive:disabled {
   background: var(--button-destructive-bg-disabled);
+  border-color: var(--button-border-disabled);
   color: var(--button-destructive-text-disabled);
   cursor: not-allowed;
 }

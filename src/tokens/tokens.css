@@ -25,15 +25,19 @@
   --color-success-40: #419e6a;
   --color-success-60: #00632b;
 
+  --color-info-10: #d3e1fe;
   --color-info-40: #4d82f3;
   --color-info-60: #2563eb;
 
+  --color-warning-10: #fff5d5;
   --color-warning-40: #f1ba27;
   --color-warning-60: #976400;
+  --color-warning-80: #724b00;
 
   --color-error-10: #ffebeb;
   --color-error-40: #d83232;
   --color-error-60: #b01212;
+  --color-error-80: #8c0000;
 
   /* ---------- Primitives: spacing ---------- */
   --space-none: 0px;
@@ -55,6 +59,8 @@
   --space-60: 60px;
 
   /* ---------- Semantic: buttons ---------- */
+  --button-border-disabled: var(--color-neutral-40);
+
   --button-primary-bg: var(--color-neutral-40);
   --button-primary-bg-pressed: var(--color-neutral-50);
   --button-primary-bg-disabled: var(--color-neutral-30);
@@ -70,9 +76,10 @@
   --button-secondary-text-disabled: var(--color-neutral-50);
 
   --button-destructive-bg: var(--color-error-40);
-  --button-destructive-bg-pressed: var(--color-neutral-50);
+  --button-destructive-bg-pressed: var(--color-error-60);
   --button-destructive-bg-disabled: var(--color-neutral-30);
   --button-destructive-border: var(--color-error-60);
+  --button-destructive-border-pressed: var(--color-error-80);
   --button-destructive-text: var(--color-neutral-0);
   --button-destructive-text-disabled: var(--color-neutral-50);
 
@@ -89,7 +96,7 @@
   /* ---------- Semantic: badges ---------- */
   --badge-error-bg: var(--color-error-10);
   --badge-error-border: var(--color-error-40);
-  --badge-error-text: var(--color-neutral-90);
+  --badge-error-text: var(--color-error-60);
   --badge-success-bg: var(--color-success-10);
   --badge-success-border: var(--color-success-40);
   --badge-success-text: var(--color-success-60);
@@ -105,10 +112,47 @@
   --badge-testtype-normal-bg: var(--color-neutral-50);
   --badge-testtype-normal-text: var(--color-neutral-80);
 
+  --badge-round-info-bg: var(--color-info-10);
+  --badge-round-info-border: var(--color-info-40);
+  --badge-round-info-text: var(--color-info-60);
+  --badge-round-success-bg: var(--color-success-10);
+  --badge-round-success-border: var(--color-success-40);
+  --badge-round-success-text: var(--color-success-60);
+  --badge-round-warning-bg: var(--color-warning-10);
+  --badge-round-warning-border: var(--color-warning-60);
+  --badge-round-warning-text: var(--color-warning-80);
+  --badge-round-error-bg: var(--color-error-10);
+  --badge-round-error-border: var(--color-error-40);
+  --badge-round-error-text: var(--color-error-60);
+
+  /* ---------- Semantic: status bar ---------- */
+  --status-bar-default-bg: var(--color-neutral-0);
+  --status-bar-default-border: var(--color-neutral-50);
+  --status-bar-default-text: var(--color-neutral-80);
+  --status-bar-pending-bg: var(--color-neutral-40);
+  --status-bar-pending-border: var(--color-neutral-50);
+  --status-bar-success-bg: var(--color-success-10);
+  --status-bar-success-border: var(--color-success-60);
+  --status-bar-success-text: var(--color-success-60);
+  --status-bar-error-bg: var(--color-error-10);
+  --status-bar-error-border: var(--color-error-60);
+  --status-bar-error-text: var(--color-error-60);
+
   /* ---------- Semantic: card ---------- */
   --card-bg: var(--color-neutral-40);
   --card-header-text: #212121;
   --card-value-text: #000000;
+
+  /* ---------- Semantic: status indicator ---------- */
+  --status-info: var(--color-info-60);
+  --status-success: var(--color-success-60);
+  --status-error: var(--color-error-60);
+  --status-warning: var(--color-warning-60);
+  --status-idle: var(--color-neutral-70);
+
+  --status-card-bg: var(--color-neutral-30);
+  --status-card-border: var(--color-neutral-50);
+  --status-card-header-text: var(--color-neutral-80);
 
   /* ---------- Typography ---------- */
   --font-family-base: "Segoe UI", system-ui, -apple-system, sans-serif;

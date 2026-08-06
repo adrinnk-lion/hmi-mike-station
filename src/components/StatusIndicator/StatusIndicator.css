@@ -1,0 +1,52 @@
+.hmi-status-dot {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.hmi-status-dot--info { background: var(--status-info); }
+.hmi-status-dot--success { background: var(--status-success); }
+.hmi-status-dot--error { background: var(--status-error); }
+.hmi-status-dot--warning { background: var(--status-warning); }
+.hmi-status-dot--idle { background: var(--status-idle); }
+
+.hmi-status-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* not on the primitive spacing scale — matches Figma exactly */
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+}
+.hmi-status-label--info { color: var(--status-info); }
+.hmi-status-label--success { color: var(--status-success); }
+.hmi-status-label--error { color: var(--status-error); }
+.hmi-status-label--warning { color: var(--status-warning); }
+.hmi-status-label--idle { color: var(--status-idle); }
+
+.hmi-status-card {
+  box-sizing: border-box;
+  background: var(--status-card-bg);
+  border: var(--space-1) solid var(--status-card-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  width: 118px;
+  padding: var(--space-8) var(--space-12);
+  font-family: var(--font-family-base);
+}
+.hmi-status-card__header {
+  width: 100%;
+  margin: 0;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--status-card-header-text);
+}
+.hmi-status-card__status {
+  width: 100%;
+  justify-content: flex-end;
+}

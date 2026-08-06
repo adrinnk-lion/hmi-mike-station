@@ -12,6 +12,7 @@ export default function Button({
   disabled = false,
   children = 'Button Text',
   onClick,
+  className: extraClassName,
   ...rest
 }) {
   const className = [
@@ -19,6 +20,7 @@ export default function Button({
     `hmi-button--${state}`,
     `hmi-button--${size}`,
     pressed && 'hmi-button--pressed',
+    extraClassName,
   ].filter(Boolean).join(' ');
 
   return (

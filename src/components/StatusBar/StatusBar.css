@@ -1,0 +1,57 @@
+.hmi-status-bar {
+  display: flex;
+  align-items: center;
+  border: var(--space-half) solid;
+  border-radius: 8px;
+  padding-left: var(--space-16);
+  padding-right: var(--space-12);
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  box-sizing: border-box;
+}
+
+.hmi-status-bar--short {
+  height: 36px;
+  width: 310px;
+}
+.hmi-status-bar--long {
+  height: 40px;
+  width: 715px;
+}
+
+.hmi-status-bar--default {
+  background: var(--status-bar-default-bg);
+  border-color: var(--status-bar-default-border);
+  color: var(--status-bar-default-text);
+}
+.hmi-status-bar--pending {
+  background: var(--status-bar-pending-bg);
+  border-color: var(--status-bar-pending-border);
+  color: var(--status-bar-default-text);
+}
+.hmi-status-bar--success {
+  background: var(--status-bar-success-bg);
+  border-color: var(--status-bar-success-border);
+  color: var(--status-bar-success-text);
+  gap: var(--space-8);
+}
+.hmi-status-bar--error {
+  background: var(--status-bar-error-bg);
+  border-color: var(--status-bar-error-border);
+  color: var(--status-bar-error-text);
+  justify-content: space-between;
+}
+
+.hmi-status-bar__group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.hmi-status-bar__button--auto {
+  width: auto;
+}

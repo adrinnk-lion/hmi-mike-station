@@ -1,5 +1,5 @@
 import './Badge.css';
-import { CheckIcon, XIcon } from '../../icons';
+import { CheckSolidIcon, XSolidIcon } from '../../icons';
 
 /**
  * RectangleBadge — matches the Figma "Rectangle Badges" component set.
@@ -9,8 +9,8 @@ export default function RectangleBadge({ state = 'default', children = 'Text' })
   return (
     <div className={`hmi-badge hmi-badge--${state}`}>
       <span>{children}</span>
-      {state === 'success' && <CheckIcon size={18} />}
-      {state === 'error' && <XIcon size={18} />}
+      {state === 'success' && <CheckSolidIcon size={25} />}
+      {state === 'error' && <XSolidIcon size={25} />}
     </div>
   );
 }
