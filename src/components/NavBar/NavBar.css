@@ -1,0 +1,96 @@
+.hmi-nav-logo {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 108px;
+  padding-bottom: var(--space-12);
+}
+.hmi-nav-logo__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  width: 100%;
+}
+.hmi-nav-logo__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  color: var(--color-neutral-80);
+}
+.hmi-nav-logo__text {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--color-neutral-100);
+}
+
+.hmi-nav-item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  width: 100px;
+  height: 80px;
+  padding: 0 var(--space-12);
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+/* Inside NavBar's column layout, items share the remaining height equally
+   instead of using their standalone fixed 80px height. */
+.hmi-navbar__items .hmi-nav-item {
+  flex: 1 0 0;
+  min-height: 0;
+  width: 100%;
+  height: auto;
+}
+.hmi-nav-item--default {
+  background: var(--color-neutral-40);
+  color: var(--color-neutral-90);
+}
+.hmi-nav-item--selected {
+  background: var(--color-neutral-50);
+  color: var(--color-neutral-100);
+}
+.hmi-nav-item__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.hmi-navbar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-10);
+  width: 100px;
+  height: 480px;
+  padding: var(--space-20) 0;
+  background: var(--color-neutral-40);
+}
+.hmi-navbar__items {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  flex: 1 0 0;
+  min-height: 0;
+}

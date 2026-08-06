@@ -9,6 +9,11 @@ import StatusLabel from './components/StatusIndicator/StatusLabel';
 import StatusCard from './components/StatusIndicator/StatusCard';
 import InputField from './components/InputField/InputField';
 import Modal from './components/Modal/Modal';
+import NavItem from './components/NavBar/NavItem';
+import NavBar from './components/NavBar/NavBar';
+import PageProgress from './components/PageProgress/PageProgress';
+import PageProgressBar from './components/PageProgress/PageProgressBar';
+import ProgressBar from './components/ProgressBar/ProgressBar';
 import Card from './components/Card/Card';
 import Alert from './components/Alert/Alert';
 import {
@@ -58,6 +63,22 @@ const MODAL_EXAMPLES = {
   },
 };
 
+const TYPOGRAPHY_STYLES = [
+  { name: 'Subheading/28 Semibold', className: 'hmi-type-subheading-28-semibold' },
+  { name: 'Subheading/24 Semi Bold', className: 'hmi-type-subheading-24-semibold' },
+  { name: 'Subheading/20 Semi Bold', className: 'hmi-type-subheading-20-semibold' },
+  { name: 'Subheading/20 Regular', className: 'hmi-type-subheading-20-regular' },
+  { name: 'Subheading/18 Regular', className: 'hmi-type-subheading-18-regular' },
+  { name: 'Body/16 Semi Bold', className: 'hmi-type-body-16-semibold' },
+  { name: 'Body/16 Regular', className: 'hmi-type-body-16-regular' },
+  { name: 'Body/15 Semi Bold', className: 'hmi-type-body-15-semibold' },
+  { name: 'Body/15 Regular', className: 'hmi-type-body-15-regular' },
+  { name: 'Body/14 Semi Bold', className: 'hmi-type-body-14-semibold' },
+  { name: 'Body/14 Regular', className: 'hmi-type-body-14-regular' },
+  { name: 'Body/12 Semi Bold', className: 'hmi-type-body-12-semibold' },
+  { name: 'Body/12 Regular', className: 'hmi-type-body-12-regular' },
+];
+
 function Section({ title, children }) {
   return (
     <section className="gallery-section">
@@ -76,6 +97,17 @@ export default function App() {
         Built for prototyping and stakeholder review — not the production HMI, which will be
         rebuilt manually in EasyBuilder Pro.
       </p>
+
+      <Section title="Typography">
+        <div className="type-ramp">
+          {TYPOGRAPHY_STYLES.map((style) => (
+            <div className="type-ramp__row" key={style.name}>
+              <span className="type-ramp__label">{style.name}</span>
+              <span className={style.className}>The quick brown fox</span>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       <Section title="Buttons">
         <Button state="primary">Primary</Button>
@@ -185,6 +217,30 @@ export default function App() {
             confirmText={example.confirmText}
           />
         ))}
+      </Section>
+
+      <Section title="Nav Items">
+        <NavItem text="Navigation Text" selected />
+        <NavItem text="Navigation Text" />
+      </Section>
+
+      <Section title="Nav Bar">
+        <NavBar />
+      </Section>
+
+      <Section title="Page Progress">
+        <PageProgress text="1. Page" active />
+        <PageProgress text="1. Page" />
+      </Section>
+
+      <Section title="Page Progress Bar">
+        <PageProgressBar />
+      </Section>
+
+      <Section title="Progress Bar">
+        <ProgressBar state="success" />
+        <ProgressBar state="warning" />
+        <ProgressBar state="error" />
       </Section>
 
       <Section title="Cards">

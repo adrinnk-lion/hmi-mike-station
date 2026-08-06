@@ -34,3 +34,24 @@
   align-items: center;
   gap: var(--space-16);
 }
+
+.type-ramp {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  width: 100%;
+}
+
+.type-ramp__row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-24);
+  border-bottom: var(--space-1) solid var(--color-neutral-20);
+  padding-bottom: var(--space-8);
+}
+
+.type-ramp__label {
+  flex: 0 0 220px;
+  font-size: 12px;
+  color: var(--color-neutral-60);
+}

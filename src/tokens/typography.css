@@ -1,0 +1,88 @@
+/*
+  Typography — every text style defined in the Figma file's local text
+  style library (13 total), pulled directly via the Plugin API rather than
+  reverse-engineered from individual components. Pruned to just the styles
+  actually applied by a component — the rest were deleted from Figma too.
+*/
+
+/* ---------- Subheading ---------- */
+.hmi-type-subheading-28-semibold {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: normal;
+}
+.hmi-type-subheading-24-semibold {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 35px;
+}
+.hmi-type-subheading-20-semibold {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 29px;
+}
+.hmi-type-subheading-20-regular {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+}
+.hmi-type-subheading-18-regular {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: normal;
+}
+
+/* ---------- Body ---------- */
+.hmi-type-body-16-semibold {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+.hmi-type-body-16-regular {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+.hmi-type-body-15-semibold {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+}
+.hmi-type-body-15-regular {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+}
+.hmi-type-body-14-semibold {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+}
+.hmi-type-body-14-regular {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+.hmi-type-body-12-semibold {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+}
+.hmi-type-body-12-regular {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+}
