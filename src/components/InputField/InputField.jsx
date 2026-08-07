@@ -17,10 +17,21 @@ export default function InputField({
   placeholderText = 'Placeholder Text',
   description = true,
   descriptionText = 'This section should be used to describe input',
+  onValueChange,           // optional (value: string) => void, fired on change/clear
 }) {
   const [value, setValue] = useState('');
   const disabled = state === 'disabled';
   const className = ['hmi-input-field', `hmi-input-field--${state}`].join(' ');
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    onValueChange?.(e.target.value);
+  };
+
+  const handleClear = () => {
+    setValue('');
+    onValueChange?.('');
+  };
 
   return (
     <div className={className}>
@@ -36,14 +47,14 @@ export default function InputField({
           className="hmi-input-field__input"
           placeholder={placeholder ? placeholderText : undefined}
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={handleChange}
           disabled={disabled}
         />
         {rightIcon && (
           <button
             type="button"
             className="hmi-input-field__clear"
-            onClick={() => setValue('')}
+            onClick={handleClear}
             disabled={disabled}
             aria-label="Clear input"
           >

@@ -1,9 +1,7 @@
-.tv-login {
-  align-items: center;
-  justify-content: center;
-}
-
 .tv-login__panel {
+  position: absolute;
+  left: 210px;
+  top: 99px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,6 +22,10 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-20);
+  width: 100%;
+}
+
+.tv-login__scan .hmi-input-field {
   width: 100%;
 }
 
