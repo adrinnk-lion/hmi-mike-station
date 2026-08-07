@@ -149,3 +149,64 @@ export function XCircleFilledIcon({ size = 35 }) {
     </svg>
   );
 }
+
+/*
+  Real Figma asset (Icon/Solid/identification), exported from the Log In
+  screen's Input Field instance. Box is 20px; visible size is naturalSize/20
+  (16x15 natural, fill uses currentColor to inherit the input's text color
+  like the rest of this file's solid icons).
+*/
+export function IdentificationSolidIcon({ size = 20 }) {
+  return (
+    <svg width={size * 0.8} height={size * 0.75} viewBox="0 0 16 15" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path d="M8 0C7.44772 0 7 0.447715 7 1V2C7 2.55228 7.44772 3 8 3C8.55228 3 9 2.55228 9 2V1C9 0.447715 8.55228 0 8 0Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M2 2H5C5 3.65685 6.34315 5 8 5C9.65685 5 11 3.65685 11 2H14C15.1046 2 16 2.89543 16 4V13C16 14.1046 15.1046 15 14 15H2C0.895431 15 0 14.1046 0 13V4C0 2.89543 0.895431 2 2 2ZM4.5 9C5.32843 9 6 8.32843 6 7.5C6 6.67157 5.32843 6 4.5 6C3.67157 6 3 6.67157 3 7.5C3 8.32843 3.67157 9 4.5 9ZM6.95048 13C6.98327 12.8384 7.00049 12.6712 7.00049 12.5C7.00049 11.1193 5.8812 10 4.50049 10C3.11978 10 2.00049 11.1193 2.00049 12.5C2.00049 12.6712 2.0177 12.8384 2.0505 13H6.95048ZM10 7C9.44772 7 9 7.44772 9 8C9 8.55228 9.44771 9 10 9H13C13.5523 9 14 8.55228 14 8C14 7.44772 13.5523 7 13 7H10ZM9 11C9 10.4477 9.44772 10 10 10H12C12.5523 10 13 10.4477 13 11C13 11.5523 12.5523 12 12 12H10C9.44772 12 9 11.5523 9 11Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+/*
+  Real Figma asset (Icon/Solid/clipboard-list), exported from the Nav Bar's
+  "System Details" nav item. Box is 24px; visible size is naturalSize/24
+  (14.4x19.2 natural), fill uses currentColor like the rest of this file's
+  solid icons.
+*/
+export function ClipboardListSolidIcon({ size = 24 }) {
+  return (
+    <svg width={size * 0.6} height={size * 0.8} viewBox="0 0 14.4 19.2" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path d="M6 0C5.33726 0 4.8 0.537258 4.8 1.2C4.8 1.86274 5.33726 2.4 6 2.4H8.4C9.06274 2.4 9.6 1.86274 9.6 1.2C9.6 0.537258 9.06274 0 8.4 0H6Z" fill="currentColor" />
+      <path fillRule="evenodd" clipRule="evenodd" d="M0 3.6C0 2.27452 1.07452 1.2 2.4 1.2C2.4 3.18823 4.01177 4.8 6 4.8H8.4C10.3882 4.8 12 3.18823 12 1.2C13.3255 1.2 14.4 2.27452 14.4 3.6V16.8C14.4 18.1255 13.3255 19.2 12 19.2H2.4C1.07452 19.2 0 18.1255 0 16.8V3.6ZM3.6 8.4C2.93726 8.4 2.4 8.93726 2.4 9.6C2.4 10.2627 2.93726 10.8 3.6 10.8H3.612C4.27474 10.8 4.812 10.2627 4.812 9.6C4.812 8.93726 4.27474 8.4 3.612 8.4H3.6ZM7.2 8.4C6.53726 8.4 6 8.93726 6 9.6C6 10.2627 6.53726 10.8 7.2 10.8H10.8C11.4627 10.8 12 10.2627 12 9.6C12 8.93726 11.4627 8.4 10.8 8.4H7.2ZM3.6 13.2C2.93726 13.2 2.4 13.7373 2.4 14.4C2.4 15.0627 2.93726 15.6 3.6 15.6H3.612C4.27474 15.6 4.812 15.0627 4.812 14.4C4.812 13.7373 4.27474 13.2 3.612 13.2H3.6ZM7.2 13.2C6.53726 13.2 6 13.7373 6 14.4C6 15.0627 6.53726 15.6 7.2 15.6H10.8C11.4627 15.6 12 15.0627 12 14.4C12 13.7373 11.4627 13.2 10.8 13.2H7.2Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+/*
+  Real Figma asset (Icon/Solid/phone), exported from the Nav Bar's "Call
+  Engineer" nav item. Box is 24px; visible size is naturalSize/24 (19.2x19.2
+  natural, matching this icon's 10% inset), fill uses currentColor like the
+  rest of this file's solid icons.
+*/
+export function PhoneSolidIcon({ size = 24 }) {
+  return (
+    <svg width={size * 0.8} height={size * 0.8} viewBox="0 0 19.2 19.2" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path d="M0 1.2C0 0.537258 0.537258 0 1.2 0H3.78345C4.37005 0 4.87068 0.424096 4.96712 1.00272L5.8543 6.32577C5.9409 6.84541 5.67847 7.36077 5.20728 7.59636L3.34951 8.52524C4.68907 11.854 7.34602 14.5109 10.6748 15.8505L11.6036 13.9927C11.8392 13.5215 12.3546 13.2591 12.8742 13.3457L18.1973 14.2329C18.7759 14.3293 19.2 14.8299 19.2 15.4166V18C19.2 18.6627 18.6627 19.2 18 19.2H15.6C6.98436 19.2 0 12.2156 0 3.6V1.2Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+/*
+  Real Figma asset (Icon/Outline/logout), exported from the Nav Bar's
+  "Log Out" nav item. Unlike the other nav icons above, this is an
+  outline/stroke icon (matching Figma's own inset math: box 24px, inset
+  16.67%/12.5%, with a further nested negative inset for the stroke's own
+  bounding box overflow — reproduced here as naturalSize/24 directly rather
+  than chaining both insets). Stroke uses currentColor like the rest of
+  this file's icons.
+*/
+export function LogoutOutlineIcon({ size = 24 }) {
+  return (
+    <svg width={size * 0.8889} height={size * 0.8056} viewBox="0 0 21.3333 19.3333" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path d="M15.6667 5.66667L19.6667 9.66667L15.6667 13.6667M19.6667 9.66667L5.66667 9.66667M11.6667 13.6667V14.6667C11.6667 16.3235 10.3235 17.6667 8.66667 17.6667H4.66667C3.00981 17.6667 1.66667 16.3235 1.66667 14.6667V4.66667C1.66667 3.00981 3.00981 1.66667 4.66667 1.66667H8.66667C10.3235 1.66667 11.6667 3.00981 11.6667 4.66667V5.66667" stroke="currentColor" strokeWidth="3.33333" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}

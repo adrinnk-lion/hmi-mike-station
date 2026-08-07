@@ -11,6 +11,7 @@ export default function InputField({
   label = true,
   labelText = 'Label',
   leftIcon = true,
+  icon,                    // optional custom left icon element, defaults to UserSolidIcon
   rightIcon = true,
   placeholder = true,
   placeholderText = 'Placeholder Text',
@@ -27,7 +28,7 @@ export default function InputField({
       <div className="hmi-input-field__box">
         {leftIcon && (
           <span className="hmi-input-field__icon">
-            <UserSolidIcon size={20} />
+            {icon ?? <UserSolidIcon size={20} />}
           </span>
         )}
         <input

@@ -1,0 +1,12 @@
+export const TECH_VIEW_ROUTES = {
+  login: '/screens/login',
+  scanSerialNumber: '/screens/scan-serial-number',
+  loadBattery: '/screens/load-battery',
+  batteryAnalyzerTest: '/screens/battery-analyzer-test',
+  hipotTest: '/screens/hipot-test',
+  testPass: '/screens/test-pass',
+  testFail: '/screens/test-fail',
+  uploadLoading: '/screens/upload-loading',
+  uploadSuccess: '/screens/upload-success',
+  uploadFail: '/screens/upload-fail',
+};

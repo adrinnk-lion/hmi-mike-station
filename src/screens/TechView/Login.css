@@ -1,0 +1,40 @@
+.tv-login {
+  align-items: center;
+  justify-content: center;
+}
+
+.tv-login__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-32);
+  width: 380px;
+}
+
+.tv-login__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-20);
+  width: 100%;
+}
+
+.tv-login__scan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-20);
+  width: 100%;
+}
+
+.tv-login__prompt {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--color-neutral-100);
+}
+
+.tv-login__submit {
+  width: 100%;
+  height: 45px;
+}

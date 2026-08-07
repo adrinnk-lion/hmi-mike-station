@@ -1,0 +1,43 @@
+.tv-viewport {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-neutral-30);
+  padding: var(--space-40);
+  box-sizing: border-box;
+}
+
+.tv-screen {
+  position: relative;
+  width: 800px;
+  height: 480px;
+  display: flex;
+  background: var(--color-neutral-10);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  font-family: var(--font-family-base);
+  flex-shrink: 0;
+}
+
+.tv-screen__content {
+  position: relative;
+  flex: 1 0 0;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: var(--space-24) var(--space-32);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-40);
+}
+
+.tv-screen__timestamp {
+  position: absolute;
+  right: var(--space-32);
+  bottom: var(--space-32);
+  margin: 0;
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--color-neutral-100);
+  white-space: nowrap;
+}

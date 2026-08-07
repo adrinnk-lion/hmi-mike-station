@@ -1,0 +1,10 @@
+.root-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.root-layout__body {
+  flex: 1 0 0;
+  min-height: 0;
+}

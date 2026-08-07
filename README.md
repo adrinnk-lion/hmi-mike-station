@@ -3,7 +3,9 @@
 A clickable prototype of the HMI Design System Figma file: buttons, button groups,
 badges, status bars/indicators, input fields, modals, navigation, page progress,
 progress bars, tables, and page text modules — plus a Foundations tab covering
-colors and typography.
+colors and typography, and a Tech View flow of real, routable screens built from
+the [Mike Battery Testing Station](https://www.figma.com/design/JihFS32IWQw3SMTtH2J1gK/Mike-Battery-Testing-Station)
+Figma file.
 
 **This is a prototyping tool, not production code.** The actual HMI will be rebuilt
 manually in EasyBuilder Pro — this exists so flows and interactions can be validated
@@ -24,6 +26,9 @@ Then open the URL it prints (usually `http://localhost:5173`).
 
 ```
 src/
+  TopNav.jsx                 — the outermost switcher: "Design System" (/) vs
+                               "Prototype" (/screens/*), visible on every page
+  RootLayout.jsx             — wraps every route in TopNav via <Outlet />
   tokens/
     tokens.css              — design tokens as CSS variables, pulled from the real
                                Figma variable values (colors, spacing)
@@ -54,11 +59,42 @@ src/
                                (Success/Info/Warning/Error) swatches
     Typography/              — the real "Fonts and Sizes" type-ramp table
                                (Size / Line Height / Weight)
+  screens/
+    TechView/                — the Log In → Scan Serial → Load Battery →
+                               Analyzer → HiPot → Pass/Fail → Upload flow,
+                               one file per screen, each routable on its own
+                               and composed entirely from src/components —
+                               no new component variants were added here.
+                               TechViewShell (nav sidebar + fixed 800x480
+                               canvas matching the device's real resolution)
+                               and TechViewProgress (cumulative step pills)
+                               are the two shared layout helpers; routes.js
+                               holds every screen's path.
   icons/                     — real solid/outline icons exported from Figma,
                                named by shape (see note below)
-  App.jsx                    — Components/Foundations tab switcher; Components
-                               tab is the gallery of every component + variant
+  App.jsx                    — the Design System page: Components/Foundations
+                               sub-tab switcher; Components tab is the
+                               gallery of every component + variant
 ```
+
+Routing uses [react-router-dom](https://reactrouter.com/), set up once in
+`src/main.jsx`. TopNav sits above every route and only switches between two
+places: the Design System (`App.jsx`, at `/`) and the Prototype (the Tech
+View flow, under `/screens/...` — see `src/screens/TechView/routes.js`).
+Every screen has its own real URL, so any screen can be linked to directly
+and each button navigates to a real route rather than just swapping local
+state — refresh, back/forward, and bookmarking all work as expected.
+
+A couple of screen-flow decisions worth knowing about, since the source
+Figma frames didn't specify a branch trigger:
+- The HiPot Test screen's "Next" always continues to the Pass outcome.
+  Test Fail is fully built and still reachable directly at
+  `/screens/test-fail`, just not linked from the primary flow.
+- "Stop Test" (Analyzer/HiPot) and both "Log Out" nav items return to
+  Log In, treated as a full session reset.
+- "Review Results" on the Upload Success/Fail screens goes back to the
+  Test Pass screen; on Test Fail itself it's left unwired (ambiguous
+  target in the source design).
 
 ## Pushing to GitHub
 
