@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
 }
+
+/* Reset for bare <p> elements carrying only a hmi-type-* utility class — those classes are pure text-style utilities and don't reset the browser's default paragraph margin. */
+.tv-label {
+  margin: 0;
+}
 .tv-block--gap-8 { gap: var(--space-8); }
 .tv-block--gap-12 { gap: var(--space-12); }
 .tv-block--gap-16 { gap: var(--space-16); }
