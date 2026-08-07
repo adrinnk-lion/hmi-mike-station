@@ -47,40 +47,11 @@ src/
     PageText/                — Page Title / Results / Section text modules
     Card/                    — Size variants
     Alert/                   — Error/Success/Warning/Informational
-                               (not currently used anywhere in the Figma file —
-                               see "Known gaps" below)
+                               (not currently used anywhere in the Figma file)
   icons/                     — real solid/outline icons exported from Figma,
                                named by shape (see note below)
   App.jsx                    — gallery showing every component + variant
 ```
-
-## Known gaps to close
-
-1. ~~**Icons are placeholders.**~~ **Closed.** Every component, including
-   Alert, now uses real icons downloaded from Figma — `icons/index.jsx` has
-   the full set, each with a comment noting which Figma asset it came from
-   and the box/inset math used to size it. Alert's icons turned out to be a
-   different shape family from everywhere else (outline/stroke, not solid
-   fill), so they're their own dedicated icon components rather than a reuse
-   of an existing solid one. The old hand-drawn placeholders (`CheckIcon`,
-   `XIcon`, `ExclamationCircleIcon`, `ExclamationTriangleIcon`, `InfoCircleIcon`)
-   were deleted along with this — nothing referenced them anymore.
-
-2. ~~**The large Card's 6px gap doesn't match the primitive spacing scale.**~~
-   **Closed.** A `space_6` variable was added to Figma's "Spacing" collection.
-   `tokens.css` now has `--space-6: 6px`, and the Card and Status Label
-   components (the two places that had a hardcoded `6px` with a "not on scale"
-   comment) both reference it instead.
-
-3. ~~**Only two badge types are built.**~~ **Closed.** Round Badges and Status
-   Bar (plus Status Dot/Label/Card, which weren't even mentioned in the original
-   gap) are all built now, along with everything else in the component list above.
-
-4. **The Alert component's Figma variant value still has the typo**
-   (`"Warnin"` instead of `"Warning"` — reconfirmed directly against the live
-   Figma file, not just the old note). The code already uses the correct
-   spelling (`warning`). Left as-is for now since Alert isn't in active use —
-   worth fixing in Figma whenever it is.
 
 ## Pushing to GitHub
 
