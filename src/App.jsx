@@ -19,7 +19,6 @@ import Table from './components/Table/Table';
 import StationName from './components/StationName/StationName';
 import PageText from './components/PageText/PageText';
 import Card from './components/Card/Card';
-import Alert from './components/Alert/Alert';
 import {
   ExclamationTriangleSolidIcon,
   XCircleSolidIcon,
@@ -305,13 +304,6 @@ export default function App() {
         <Card size="large" header="Voltage" value="12.6 V" />
         <Card size="medium" header="Current" value="4.2 A" />
         <Card size="small" header="Temp" value="34°C" />
-      </Section>
-
-      <Section title="Alerts">
-        <Alert type="error">A HiPot test failed on station 3. Retest required before continuing.</Alert>
-        <Alert type="success">Battery test completed successfully.</Alert>
-        <Alert type="warning">Analyzer connection is unstable — readings may be inaccurate.</Alert>
-        <Alert type="informational">Firmware update available for this test station.</Alert>
       </Section>
     </main>
   );

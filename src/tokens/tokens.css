@@ -98,16 +98,6 @@
   --button-destructive-text: var(--color-neutral-0);
   --button-destructive-text-disabled: var(--color-neutral-50);
 
-  /* ---------- Semantic: alerts ---------- */
-  --alerts-bg-error: var(--color-error-10);
-  --alerts-text-error: var(--color-error-60);
-  --alerts-bg-success: var(--color-success-10);
-  --alerts-text-success: var(--color-success-60);
-  --alerts-bg-warning: #fff5d5;
-  --alerts-text-warning: var(--color-warning-60);
-  --alerts-bg-info: #d3e1fe;
-  --alerts-text-info: var(--color-info-60);
-
   /* ---------- Semantic: badges ---------- */
   --badge-error-bg: var(--color-error-10);
   --badge-error-border: var(--color-error-40);

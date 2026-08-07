@@ -46,8 +46,6 @@ src/
     StationName/             — lion + title lockup (bigger than NavLogo)
     PageText/                — Page Title / Results / Section text modules
     Card/                    — Size variants
-    Alert/                   — Error/Success/Warning/Informational
-                               (not currently used anywhere in the Figma file)
   icons/                     — real solid/outline icons exported from Figma,
                                named by shape (see note below)
   App.jsx                    — gallery showing every component + variant
