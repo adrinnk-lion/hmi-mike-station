@@ -14,6 +14,10 @@ import NavBar from './components/NavBar/NavBar';
 import PageProgress from './components/PageProgress/PageProgress';
 import PageProgressBar from './components/PageProgress/PageProgressBar';
 import ProgressBar from './components/ProgressBar/ProgressBar';
+import TableRow from './components/Table/TableRow';
+import Table from './components/Table/Table';
+import StationName from './components/StationName/StationName';
+import PageText from './components/PageText/PageText';
 import Card from './components/Card/Card';
 import Alert from './components/Alert/Alert';
 import {
@@ -78,6 +82,31 @@ const TYPOGRAPHY_STYLES = [
   { name: 'Body/12 Semi Bold', className: 'hmi-type-body-12-semibold' },
   { name: 'Body/12 Regular', className: 'hmi-type-body-12-regular' },
 ];
+
+const TABLE_EXAMPLES = {
+  pass: {
+    section: 'Battery 2',
+    serialNumber: 'SN-1234567-891',
+    status: 'pass',
+    rows: [
+      { time: '01:58:48', testType: 'battery', content: 'Test Details | 98% SOC' },
+      { time: '01:57:37', testType: 'hipot', content: 'Test Passed' },
+      { time: '01:54:20', testType: 'analyzer', content: 'Analyzer Complete | 91% SOC | 52.8 V' },
+      { time: '01:52:10', testType: 'battery', content: 'Contacts Connected' },
+    ],
+  },
+  fail: {
+    section: 'Battery 1',
+    serialNumber: 'SN-1234567-890',
+    status: 'fail',
+    rows: [
+      { time: '01:49:48', testType: 'battery', content: 'Test Failed | Flagged for Review' },
+      { time: '01:47:10', testType: 'hipot', testStatus: 'error', content: 'Discharge Failed' },
+      { time: '01:45:02', testType: 'analyzer', content: 'Analyzer Complete | 91% SOC | 52.8 V' },
+      { time: '01:42:33', testType: 'battery', content: 'Contacts Connected' },
+    ],
+  },
+};
 
 function Section({ title, children }) {
   return (
@@ -241,6 +270,35 @@ export default function App() {
         <ProgressBar state="success" />
         <ProgressBar state="warning" />
         <ProgressBar state="error" />
+      </Section>
+
+      <Section title="Table Row">
+        <TableRow variant="header" position="top" section="Section Header" serialNumber="SN-1234567-890" status="pass" />
+        <TableRow variant="content" position="middle" time="01:58:10" testType="battery" content="Test Details |" />
+        <TableRow variant="content" position="bottom" time="01:58:10" testType="battery" content="Test Details |" />
+      </Section>
+
+      <Section title="Table">
+        <Table {...TABLE_EXAMPLES.pass} />
+        <Table {...TABLE_EXAMPLES.fail} />
+      </Section>
+
+      <Section title="Station Name">
+        <StationName />
+      </Section>
+
+      <Section title="Page Text — Page Title">
+        <PageText variant="pageTitle" status="pass" title="Page Title" text="Page title text" />
+        <PageText variant="pageTitle" status="fail" title="Page Title" text="Page title text" />
+      </Section>
+
+      <Section title="Page Text — Results">
+        <PageText variant="results" status="pass" title="Page Title" />
+        <PageText variant="results" status="fail" title="Page Title" />
+      </Section>
+
+      <Section title="Page Text — Section">
+        <PageText variant="section" />
       </Section>
 
       <Section title="Cards">

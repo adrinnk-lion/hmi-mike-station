@@ -181,3 +181,28 @@ export function BatterySolidIcon({ size = 24 }) {
     </svg>
   );
 }
+
+/*
+  Real Figma assets (Icon/Solid/check-circle, x-circle), exported from the
+  "Text" component (Page Title / Results). Note: these have a visibly
+  chunkier glyph than CheckCircleSolidIcon/XCircleSolidIcon above — Figma
+  exported a distinct, hand-tuned shape here rather than reusing that one,
+  so this is a separate icon, not a duplicate. Box is a 10%-inset square
+  (visible size = box * 0.8, matching its 28x28 natural size) — fill uses
+  currentColor like the rest of this file's solid icons.
+*/
+export function CheckCircleFilledIcon({ size = 35 }) {
+  return (
+    <svg width={size * 0.8} height={size * 0.8} viewBox="0 0 28 28" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28ZM20.4874 11.7374C21.1709 11.054 21.1709 9.94598 20.4874 9.26256C19.804 8.57915 18.696 8.57915 18.0126 9.26256L12.25 15.0251L9.98744 12.7626C9.30402 12.0791 8.19598 12.0791 7.51256 12.7626C6.82915 13.446 6.82915 14.554 7.51256 15.2374L11.0126 18.7374C11.696 19.4209 12.804 19.4209 13.4874 18.7374L20.4874 11.7374Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function XCircleFilledIcon({ size = 35 }) {
+  return (
+    <svg width={size * 0.8} height={size * 0.8} viewBox="0 0 28 28" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path fillRule="evenodd" clipRule="evenodd" d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28ZM11.7374 9.26256C11.054 8.57915 9.94598 8.57915 9.26256 9.26256C8.57915 9.94598 8.57915 11.054 9.26256 11.7374L11.5251 14L9.26256 16.2626C8.57915 16.946 8.57915 18.054 9.26256 18.7374C9.94598 19.4209 11.054 19.4209 11.7374 18.7374L14 16.4749L16.2626 18.7374C16.946 19.4209 18.054 19.4209 18.7374 18.7374C19.4209 18.054 19.4209 16.946 18.7374 16.2626L16.4749 14L18.7374 11.7374C19.4209 11.054 19.4209 9.94598 18.7374 9.26256C18.054 8.57915 16.946 8.57915 16.2626 9.26256L14 11.5251L11.7374 9.26256Z" fill="currentColor" />
+    </svg>
+  );
+}
