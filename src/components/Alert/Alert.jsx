@@ -1,11 +1,16 @@
 import './Alert.css';
-import { ExclamationCircleIcon, CheckIcon, ExclamationTriangleIcon, InfoCircleIcon } from '../../icons';
+import {
+  ExclamationCircleOutlineIcon,
+  CheckCircleOutlineIcon,
+  ExclamationOutlineIcon,
+  InfoOutlineIcon,
+} from '../../icons';
 
 const ICONS = {
-  error: ExclamationCircleIcon,
-  success: CheckIcon,
-  warning: ExclamationTriangleIcon,
-  informational: InfoCircleIcon,
+  error: ExclamationCircleOutlineIcon,
+  success: CheckCircleOutlineIcon,
+  warning: ExclamationOutlineIcon,
+  informational: InfoOutlineIcon,
 };
 
 /**

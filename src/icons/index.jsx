@@ -1,61 +1,4 @@
 /*
-  PLACEHOLDER ICONS.
-  These are simple stand-ins, not your real Figma icon assets — the sandbox that
-  built this couldn't reach Figma's asset-download servers. To swap in the real
-  ones: in Figma, right-click each icon layer > "Copy as" > "Copy as SVG", save
-  it under src/icons/ (e.g. check.svg), and replace the matching component below
-  with an <img src="./check.svg" /> or an inline copy of the real markup.
-*/
-
-export function CheckIcon({ size = 20 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M8 12.5l2.5 2.5L16 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export function XIcon({ size = 20 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-export function ExclamationCircleIcon({ size = 20 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 7v6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="12" cy="16.5" r="0.9" fill="currentColor" />
-    </svg>
-  );
-}
-
-export function ExclamationTriangleIcon({ size = 20 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M12 4l9 16H3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M12 10v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="12" cy="17" r="0.9" fill="currentColor" />
-    </svg>
-  );
-}
-
-export function InfoCircleIcon({ size = 20 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 11v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="12" cy="7.5" r="0.9" fill="currentColor" />
-    </svg>
-  );
-}
-
-/*
   Real Figma assets (Icon/Solid/check, Icon/Solid/x), exported from the
   Rectangle Badges component. Sized as a 25x25 box per the design's icon
   container, with the glyph filling it per Figma's inset (70%x50% for the
@@ -203,6 +146,53 @@ export function XCircleFilledIcon({ size = 35 }) {
   return (
     <svg width={size * 0.8} height={size * 0.8} viewBox="0 0 28 28" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
       <path fillRule="evenodd" clipRule="evenodd" d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28ZM11.7374 9.26256C11.054 8.57915 9.94598 8.57915 9.26256 9.26256C8.57915 9.94598 8.57915 11.054 9.26256 11.7374L11.5251 14L9.26256 16.2626C8.57915 16.946 8.57915 18.054 9.26256 18.7374C9.94598 19.4209 11.054 19.4209 11.7374 18.7374L14 16.4749L16.2626 18.7374C16.946 19.4209 18.054 19.4209 18.7374 18.7374C19.4209 18.054 19.4209 16.946 18.7374 16.2626L16.4749 14L18.7374 11.7374C19.4209 11.054 19.4209 9.94598 18.7374 9.26256C18.054 8.57915 16.946 8.57915 16.2626 9.26256L14 11.5251L11.7374 9.26256Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+/*
+  Real Figma assets (Icon/Outline/exclamation-circle, check-circle,
+  exclamation, info), exported from the Alert component — the last place
+  in the codebase still using hand-drawn placeholder icons. Unlike every
+  other icon in this file, these are outline/stroke icons, not solid
+  fills. Box is 24px; the effective visible size for each is computed
+  directly from its real natural dimensions (Figma's own inset math for
+  these involves confusing nested positive+negative insets, so the
+  fractions below are just naturalSize/24 rather than a single inset %).
+  Error/success/warning use currentColor on their stroke (each already
+  matches its alert's text color exactly). The info icon is genuinely
+  two-toned in the source — a fixed dark fill for the "i" glyph plus a
+  colored ring — so only its stroke uses currentColor; the fill is kept
+  as the literal exported color rather than genericized.
+*/
+export function ExclamationCircleOutlineIcon({ size = 24 }) {
+  return (
+    <svg width={size * 0.8334} height={size * 0.8334} viewBox="0 0 20 20" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path d="M10 6V10M10 14H10.01M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function CheckCircleOutlineIcon({ size = 24 }) {
+  return (
+    <svg width={size * 0.8334} height={size * 0.8334} viewBox="0 0 20 20" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path d="M7 10L9 12L13 8M19 10C19 14.9706 14.9706 19 10 19C5.02944 19 1 14.9706 1 10C1 5.02944 5.02944 1 10 1C14.9706 1 19 5.02944 19 10Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function ExclamationOutlineIcon({ size = 24 }) {
+  return (
+    <svg width={size * 0.8277} height={size * 0.75} viewBox="0 0 19.8654 18" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path d="M9.93268 7V9M9.93268 13H9.94268M3.00448 17H16.8609C18.4005 17 19.3627 15.3333 18.5929 14L11.6647 2C10.8949 0.666667 8.97043 0.666667 8.20063 2L1.27242 14C0.502625 15.3333 1.46487 17 3.00448 17Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function InfoOutlineIcon({ size = 24 }) {
+  return (
+    <svg width={size * 0.75} height={size * 0.75} viewBox="0 0 18 18" fill="none" aria-hidden="true" style={{ overflow: 'visible' }}>
+      <path d="M7.35547 0.733398C8.99045 0.40818 10.6855 0.574952 12.2256 1.21289C13.7656 1.85082 15.0817 2.93138 16.0078 4.31738C16.876 5.61671 17.3651 7.12997 17.4229 8.6875L17.4287 9C17.4261 11.2346 16.5371 13.3769 14.957 14.957C13.3768 16.5373 11.2338 17.4253 8.99902 17.4277C7.33235 17.4275 5.70318 16.9338 4.31738 16.0078C2.93138 15.0817 1.85082 13.7656 1.21289 12.2256C0.574952 10.6855 0.40818 8.99045 0.733398 7.35547C1.05864 5.72056 1.86133 4.21875 3.04004 3.04004C4.21875 1.86133 5.72056 1.05864 7.35547 0.733398ZM7.2002 12.2715H7.52832V12.5996C7.52832 12.7112 7.54186 12.8217 7.56641 12.9287H7.2002C7.11305 12.9287 7.02939 12.8936 6.96777 12.832C6.90622 12.7704 6.87109 12.6867 6.87109 12.5996C6.8712 12.5126 6.90625 12.4287 6.96777 12.3672C7.02936 12.3058 7.11319 12.2715 7.2002 12.2715ZM7.2002 7.77148H9C9.08705 7.77148 9.17082 7.80569 9.23242 7.86719C9.29395 7.92871 9.32802 8.01261 9.32813 8.09961V11.1289H8.67188V8.42871H7.2002C7.11305 8.42871 7.02939 8.39365 6.96777 8.33203C6.90622 8.27042 6.87109 8.1867 6.87109 8.09961C6.8712 8.01261 6.90625 7.92871 6.96777 7.86719C7.02936 7.80575 7.11319 7.77148 7.2002 7.77148ZM8.5498 4.17188C8.9798 4.17188 9.32813 4.5202 9.32813 4.9502C9.32802 5.3801 8.97973 5.72852 8.5498 5.72852C8.11997 5.72841 7.77159 5.38003 7.77148 4.9502C7.77148 4.52027 8.1199 4.17198 8.5498 4.17188ZM8.67188 12.2715H9.32813V12.5996C9.32813 12.6867 9.29392 12.7704 9.23242 12.832C9.1708 12.8936 9.08714 12.9287 9 12.9287C8.91286 12.9287 8.8292 12.8936 8.76758 12.832C8.70608 12.7704 8.67188 12.6867 8.67188 12.5996V12.2715ZM10.4717 12.2715H10.7998C10.8868 12.2715 10.9706 12.3058 11.0322 12.3672C11.0938 12.4287 11.1288 12.5126 11.1289 12.5996C11.1289 12.6867 11.0938 12.7704 11.0322 12.832C10.9706 12.8936 10.8869 12.9287 10.7998 12.9287H10.4336C10.4581 12.8217 10.4717 12.7112 10.4717 12.5996V12.2715ZM16.7715 8.99902C16.7691 6.93892 15.9499 4.96356 14.4932 3.50684C13.0364 2.05011 11.0611 1.23092 9.00098 1.22852H9C7.46305 1.22852 5.96057 1.68425 4.68262 2.53809C3.40461 3.39202 2.40851 4.60632 1.82031 6.02637C1.2322 7.44634 1.07808 9.00918 1.37793 10.5166C1.67785 12.0239 2.41814 13.4084 3.50488 14.4951C4.59163 15.5819 5.97607 16.3221 7.4834 16.6221C8.99082 16.9219 10.5537 16.7678 11.9736 16.1797C13.3937 15.5915 14.608 14.5954 15.4619 13.3174C16.3158 12.0394 16.7715 10.537 16.7715 9V8.99902Z" fill="#1E1E1E" stroke="currentColor" strokeWidth="1.14286" />
     </svg>
   );
 }

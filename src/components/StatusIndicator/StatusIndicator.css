@@ -14,7 +14,7 @@
 .hmi-status-label {
   display: inline-flex;
   align-items: center;
-  gap: 6px; /* not on the primitive spacing scale — matches Figma exactly */
+  gap: var(--space-6);
   font-family: var(--font-family-base);
   font-weight: 600;
   font-size: 14px;

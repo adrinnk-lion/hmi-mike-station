@@ -23,7 +23,7 @@
 .hmi-card--large {
   width: 311px;
   height: 64px;
-  gap: 6px; /* not on the primitive spacing scale (4, 8...) — see note in README */
+  gap: var(--space-6);
 }
 .hmi-card--large .hmi-card__header { font-size: 14px; line-height: 21px; }
 .hmi-card--large .hmi-card__value { font-size: 18px; }

@@ -1,7 +1,8 @@
 # HMI Design System — component prototype
 
-A clickable prototype of the core components from the HMI Design System Figma file:
-buttons, badges (general + battery/HiPot/analyzer test-station badges), cards, and alerts.
+A clickable prototype of the HMI Design System Figma file: buttons, button groups,
+badges, status bars/indicators, input fields, modals, navigation, page progress,
+progress bars, tables, page text modules, and the full typography system.
 
 **This is a prototyping tool, not production code.** The actual HMI will be rebuilt
 manually in EasyBuilder Pro — this exists so flows and interactions can be validated
@@ -22,50 +23,75 @@ Then open the URL it prints (usually `http://localhost:5173`).
 
 ```
 src/
-  tokens/tokens.css       — design tokens as CSS variables, generated from the
-                             real Figma variable values (colors, spacing)
+  tokens/
+    tokens.css              — design tokens as CSS variables, pulled from the real
+                               Figma variable values (colors, spacing)
+    typography.css           — every text style actually used by a component,
+                               pulled from Figma's real text-style library
   components/
-    Button/                — State x Size x Pressed x Disabled
-    Badge/                 — RectangleBadge (general) + TestTypeBadge (battery/HiPot/analyzer)
-    Card/                  — Size variants
-    Alert/                 — Error/Success/Warning/Informational
-  icons/                   — PLACEHOLDER icons — see note below
-  App.jsx                  — gallery showing every component + variant
+    Button/                 — State x Size x Pressed x Disabled, real :active state
+    ButtonGroup/             — wizard footer nav (5 layout variants)
+    Badge/
+      RectangleBadge         — Default/Pending/Success/Error
+      RoundBadge             — status pills (Running/Pass/Error/Fail/Stopped)
+      TestTypeBadge          — battery/HiPot/analyzer test-station badges
+    StatusBar/               — Default/Pending/Success/Error, short/long
+    StatusIndicator/         — StatusDot, StatusLabel, StatusCard
+    InputField/              — real text input: Default/Active/Error/Disabled
+    Modal/                   — overlay or inline dialog, icon instance-swap
+    NavBar/                  — NavLogo, NavItem (clickable), NavBar
+    PageProgress/            — pressable step pills + PageProgressBar
+    ProgressBar/             — Success/Warning/Error fill states
+    Table/                   — TableRow (single row) + Table (composes rows)
+    StationName/             — lion + title lockup (bigger than NavLogo)
+    PageText/                — Page Title / Results / Section text modules
+    Card/                    — Size variants
+    Alert/                   — Error/Success/Warning/Informational
+                               (not currently used anywhere in the Figma file —
+                               see "Known gaps" below)
+  icons/                     — real solid/outline icons exported from Figma,
+                               named by shape (see note below)
+  App.jsx                    — gallery showing every component + variant
 ```
 
 ## Known gaps to close
 
-1. **Icons are placeholders.** The environment that generated this code couldn't
-   reach Figma's asset-download servers, so the check/x/exclamation/info icons
-   are simple hand-drawn stand-ins, not your real icon set. To fix: in Figma,
-   right-click each icon layer → "Copy as" → "Copy as SVG", save it in
-   `src/icons/`, and swap it into the matching component in `src/icons/index.jsx`.
+1. ~~**Icons are placeholders.**~~ **Closed.** Every component, including
+   Alert, now uses real icons downloaded from Figma — `icons/index.jsx` has
+   the full set, each with a comment noting which Figma asset it came from
+   and the box/inset math used to size it. Alert's icons turned out to be a
+   different shape family from everywhere else (outline/stroke, not solid
+   fill), so they're their own dedicated icon components rather than a reuse
+   of an existing solid one. The old hand-drawn placeholders (`CheckIcon`,
+   `XIcon`, `ExclamationCircleIcon`, `ExclamationTriangleIcon`, `InfoCircleIcon`)
+   were deleted along with this — nothing referenced them anymore.
 
-2. **The large Card's 6px gap doesn't match the primitive spacing scale**
-   (which goes 4px, 8px, ...). It's called out as a literal value with a comment
-   in `Card.css` — worth deciding in Figma whether to add a `space_6` token or
-   change the card to use the nearest existing value.
+2. ~~**The large Card's 6px gap doesn't match the primitive spacing scale.**~~
+   **Closed.** A `space_6` variable was added to Figma's "Spacing" collection.
+   `tokens.css` now has `--space-6: 6px`, and the Card and Status Label
+   components (the two places that had a hardcoded `6px` with a "not on scale"
+   comment) both reference it instead.
 
-3. **Only two badge types are built** (Rectangle Badges, and the battery/HiPot/
-   analyzer test badges). The file also has Round Badges and a Status Bar
-   component set not yet ported — same pattern, just ask to add them.
+3. ~~**Only two badge types are built.**~~ **Closed.** Round Badges and Status
+   Bar (plus Status Dot/Label/Card, which weren't even mentioned in the original
+   gap) are all built now, along with everything else in the component list above.
 
-4. **The Alert component's Figma variant value has a typo** (`"Warnin"` instead
-   of `"Warning"`). The code uses the correct spelling (`warning`) — worth fixing
-   the property value in Figma too so the two stay matched.
+4. **The Alert component's Figma variant value still has the typo**
+   (`"Warnin"` instead of `"Warning"` — reconfirmed directly against the live
+   Figma file, not just the old note). The code already uses the correct
+   spelling (`warning`). Left as-is for now since Alert isn't in active use —
+   worth fixing in Figma whenever it is.
 
 ## Pushing to GitHub
 
-This project is already a git repo with an initial commit. To push it to the
-empty repo you created on GitHub:
+This repo is already pushed to
+[adrinnk-lion/hmi-mike-station](https://github.com/adrinnk-lion/hmi-mike-station).
+To push further changes:
 
 ```bash
-git remote add origin https://github.com/<your-username>/<your-repo-name>.git
-git branch -M main
-git push -u origin main
+git push origin main
 ```
 
-Replace `<your-username>/<your-repo-name>` with your actual repo path. If GitHub
-asks for a password on push, use a
+If GitHub asks for a password on push, use a
 [personal access token](https://github.com/settings/tokens) instead of your
 account password — GitHub stopped accepting account passwords for this.
