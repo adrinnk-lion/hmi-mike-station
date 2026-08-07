@@ -19,6 +19,8 @@ import Table from './components/Table/Table';
 import StationName from './components/StationName/StationName';
 import PageText from './components/PageText/PageText';
 import Card from './components/Card/Card';
+import Foundations from './foundations/Foundations';
+import { useState } from 'react';
 import {
   ExclamationTriangleSolidIcon,
   XCircleSolidIcon,
@@ -66,22 +68,6 @@ const MODAL_EXAMPLES = {
   },
 };
 
-const TYPOGRAPHY_STYLES = [
-  { name: 'Subheading/28 Semibold', className: 'hmi-type-subheading-28-semibold' },
-  { name: 'Subheading/24 Semi Bold', className: 'hmi-type-subheading-24-semibold' },
-  { name: 'Subheading/20 Semi Bold', className: 'hmi-type-subheading-20-semibold' },
-  { name: 'Subheading/20 Regular', className: 'hmi-type-subheading-20-regular' },
-  { name: 'Subheading/18 Regular', className: 'hmi-type-subheading-18-regular' },
-  { name: 'Body/16 Semi Bold', className: 'hmi-type-body-16-semibold' },
-  { name: 'Body/16 Regular', className: 'hmi-type-body-16-regular' },
-  { name: 'Body/15 Semi Bold', className: 'hmi-type-body-15-semibold' },
-  { name: 'Body/15 Regular', className: 'hmi-type-body-15-regular' },
-  { name: 'Body/14 Semi Bold', className: 'hmi-type-body-14-semibold' },
-  { name: 'Body/14 Regular', className: 'hmi-type-body-14-regular' },
-  { name: 'Body/12 Semi Bold', className: 'hmi-type-body-12-semibold' },
-  { name: 'Body/12 Regular', className: 'hmi-type-body-12-regular' },
-];
-
 const TABLE_EXAMPLES = {
   pass: {
     section: 'Battery 2',
@@ -117,26 +103,40 @@ function Section({ title, children }) {
 }
 
 export default function App() {
+  const [view, setView] = useState('components');
+
   return (
-    <main className="gallery">
-      <h1>HMI Design System — component prototype</h1>
-      <p className="gallery-intro">
-        A live, clickable version of the core components from the Figma HMI Design System.
-        Built for prototyping and stakeholder review — not the production HMI, which will be
-        rebuilt manually in EasyBuilder Pro.
-      </p>
+    <>
+      <header className="gallery-header">
+        <h1>HMI Design System — component prototype</h1>
+        <p className="gallery-intro">
+          A live, clickable version of the core components from the Figma HMI Design System.
+          Built for prototyping and stakeholder review — not the production HMI, which will be
+          rebuilt manually in EasyBuilder Pro.
+        </p>
 
-      <Section title="Typography">
-        <div className="type-ramp">
-          {TYPOGRAPHY_STYLES.map((style) => (
-            <div className="type-ramp__row" key={style.name}>
-              <span className="type-ramp__label">{style.name}</span>
-              <span className={style.className}>The quick brown fox</span>
-            </div>
-          ))}
-        </div>
-      </Section>
+        <nav className="gallery-tabs">
+          <button
+            type="button"
+            className={`gallery-tabs__tab${view === 'components' ? ' gallery-tabs__tab--active' : ''}`}
+            onClick={() => setView('components')}
+          >
+            Components
+          </button>
+          <button
+            type="button"
+            className={`gallery-tabs__tab${view === 'foundations' ? ' gallery-tabs__tab--active' : ''}`}
+            onClick={() => setView('foundations')}
+          >
+            Foundations
+          </button>
+        </nav>
+      </header>
 
+      {view === 'foundations' ? (
+        <Foundations />
+      ) : (
+      <main className="gallery">
       <Section title="Buttons">
         <Button state="primary">Primary</Button>
         <Button state="secondary">Secondary</Button>
@@ -305,6 +305,8 @@ export default function App() {
         <Card size="medium" header="Current" value="4.2 A" />
         <Card size="small" header="Temp" value="34°C" />
       </Section>
-    </main>
+      </main>
+      )}
+    </>
   );
 }

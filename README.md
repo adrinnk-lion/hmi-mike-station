@@ -2,7 +2,8 @@
 
 A clickable prototype of the HMI Design System Figma file: buttons, button groups,
 badges, status bars/indicators, input fields, modals, navigation, page progress,
-progress bars, tables, page text modules, and the full typography system.
+progress bars, tables, and page text modules — plus a Foundations tab covering
+colors and typography.
 
 **This is a prototyping tool, not production code.** The actual HMI will be rebuilt
 manually in EasyBuilder Pro — this exists so flows and interactions can be validated
@@ -26,8 +27,8 @@ src/
   tokens/
     tokens.css              — design tokens as CSS variables, pulled from the real
                                Figma variable values (colors, spacing)
-    typography.css           — every text style actually used by a component,
-                               pulled from Figma's real text-style library
+    typography.css           — every text style used across components and the
+                               Foundations > Fonts and Sizes page
   components/
     Button/                 — State x Size x Pressed x Disabled, real :active state
     ButtonGroup/             — wizard footer nav (5 layout variants)
@@ -46,9 +47,17 @@ src/
     StationName/             — lion + title lockup (bigger than NavLogo)
     PageText/                — Page Title / Results / Section text modules
     Card/                    — Size variants
+  foundations/
+    Foundations.jsx          — Colors / Fonts and Sizes sub-nav
+    FoundationsBanner.jsx    — shared "Foundations" title banner
+    Colors/                  — Neutral, Brand, and Semantic
+                               (Success/Info/Warning/Error) swatches
+    Typography/              — the real "Fonts and Sizes" type-ramp table
+                               (Size / Line Height / Weight)
   icons/                     — real solid/outline icons exported from Figma,
                                named by shape (see note below)
-  App.jsx                    — gallery showing every component + variant
+  App.jsx                    — Components/Foundations tab switcher; Components
+                               tab is the gallery of every component + variant
 ```
 
 ## Pushing to GitHub

@@ -30,7 +30,7 @@
   --color-info-60: #2563eb;
 
   --color-warning-10: #fff5d5;
-  --color-warning-40: #f1ba27;
+  --color-warning-40: #efb008;
   --color-warning-60: #976400;
   --color-warning-80: #724b00;
 
@@ -176,6 +176,9 @@
   --modal-border: var(--color-neutral-60);
   --modal-title-text: var(--color-neutral-100);
   --modal-body-text: var(--color-neutral-80);
+
+  /* ---------- Semantic: foundations pages ---------- */
+  --foundations-banner-bg: #f8fafc;
 
   /* ---------- Typography ---------- */
   --font-family-base: "Segoe UI", system-ui, -apple-system, sans-serif;
