@@ -3,9 +3,10 @@ import TechViewShell from './TechViewShell';
 import TechViewProgress from './TechViewProgress';
 import PageText from '../../components/PageText/PageText';
 import InputField from '../../components/InputField/InputField';
-import ButtonGroup from '../../components/ButtonGroup/ButtonGroup';
+import Button from '../../components/Button/Button';
 import { TECH_VIEW_ROUTES } from './routes';
 import './TechViewScreens.css';
+import './ScanSerialNumber.css';
 
 export default function ScanSerialNumber() {
   const navigate = useNavigate();
@@ -19,10 +20,15 @@ export default function ScanSerialNumber() {
           title="Scan Serial Number"
           text="Scan the serial number on the battery to get started."
         />
-        <InputField labelText="Serial Number:" placeholderText="Serial Number" leftIcon={false} description={false} />
+        <div className="tv-scan__field">
+          <InputField labelText="Serial Number:" placeholderText="Serial Number" leftIcon={false} description={false} />
+        </div>
       </div>
-      <div className="tv-spacer" />
-      <ButtonGroup variant="one" nextText="Next" onNext={() => navigate(TECH_VIEW_ROUTES.loadBattery)} />
+      <div className="tv-screen__footer">
+        <Button size="regular" className="tv-scan__submit" onClick={() => navigate(TECH_VIEW_ROUTES.loadBattery)}>
+          Next
+        </Button>
+      </div>
     </TechViewShell>
   );
 }

@@ -33,11 +33,25 @@
 
 .tv-screen__timestamp {
   position: absolute;
-  right: var(--space-32);
-  bottom: var(--space-32);
+  left: 534px;
+  top: 448px;
   margin: 0;
   font-size: 12px;
   line-height: 18px;
   color: var(--color-neutral-100);
   white-space: nowrap;
+}
+
+/*
+  Every Tech View screen's footer sits at a fixed top: 394px in Figma
+  regardless of that screen's own button height (some screens mix a 45px
+  and a 48px button in the same row) — so it's anchored directly rather
+  than pushed to the bottom via a flex spacer, which only coincidentally
+  matches Figma when every screen's footer height happens to be identical.
+*/
+.tv-screen__footer {
+  position: absolute;
+  left: var(--space-32);
+  right: var(--space-32);
+  top: 394px;
 }
