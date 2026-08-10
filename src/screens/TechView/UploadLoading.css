@@ -1,0 +1,6 @@
+/* This screen's content sits much further from the progress bar than the
+   data-dense screens (110px vs 19-40px elsewhere) since it's mostly empty
+   while the upload is "in progress". */
+.tv-upload-loading__title {
+  margin-top: 110px;
+}
