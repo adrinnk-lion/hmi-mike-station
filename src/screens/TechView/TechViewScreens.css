@@ -7,6 +7,7 @@
 .tv-label {
   margin: 0;
 }
+.tv-block--gap-2 { gap: var(--space-2); }
 .tv-block--gap-8 { gap: var(--space-8); }
 .tv-block--gap-12 { gap: var(--space-12); }
 .tv-block--gap-16 { gap: var(--space-16); }
@@ -14,6 +15,7 @@
 .tv-block--gap-40 { gap: var(--space-40); }
 
 /* The space between the progress bar row and a screen's own content — varies per screen in Figma, so it's applied explicitly rather than inherited from a shared parent gap. */
+.tv-mt-32 { margin-top: var(--space-32); }
 .tv-mt-40 { margin-top: var(--space-40); }
 /* Mostly-empty screens (Upload Loading/Success/Fail) sit much further from the progress bar (110px) than data-dense ones. */
 .tv-mt-110 { margin-top: 110px; }

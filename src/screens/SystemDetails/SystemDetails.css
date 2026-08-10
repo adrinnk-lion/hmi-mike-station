@@ -1,0 +1,85 @@
+/* Engineer Access */
+.tv-engineer-access__panel {
+  position: absolute;
+  left: 148px;
+  top: 99px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-32);
+  width: 380px;
+}
+
+.tv-engineer-access__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-20);
+  width: 100%;
+}
+
+.tv-engineer-access__scan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-20);
+  width: 100%;
+}
+
+.tv-engineer-access__scan .hmi-input-field {
+  width: 100%;
+}
+
+.tv-engineer-access__prompt {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  color: var(--color-neutral-100);
+}
+
+.tv-engineer-access__submit {
+  width: 100%;
+  height: 45px;
+}
+
+/* System Details */
+.tv-system-details__bars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  width: 100%;
+}
+
+.tv-system-details__bars-grid .hmi-status-bar {
+  width: 100%;
+}
+
+/*
+  Modal is normally a viewport-wide fixed overlay, but this screen's error
+  alert should stay confined to the 800x480 device canvas (and, per Figma,
+  to the content area right of the nav sidebar specifically) — so it's
+  repositioned absolute within .tv-screen__content instead of fixed to the
+  viewport. Background is overridden to the error tint Figma uses for this
+  particular alert instance rather than the shared Modal's neutral default.
+*/
+.tv-system-details__modal-backdrop {
+  position: absolute;
+}
+.tv-system-details__modal-backdrop .hmi-modal {
+  background: var(--color-error-10);
+}
+
+/* Event Log */
+.tv-event-log__table {
+  margin-top: 20px;
+}
+
+.tv-event-log__date {
+  color: #282828;
+}
+
+.tv-event-log__page-text {
+  width: 180px;
+  text-align: center;
+  color: var(--color-neutral-80);
+}

@@ -24,6 +24,7 @@ export default function Modal({
   confirmText = 'Retest',
   onCancel,
   onConfirm,
+  className: backdropClassName,
 }) {
   useEffect(() => {
     if (inline || !open) return;
@@ -65,7 +66,7 @@ export default function Modal({
   if (inline) return card;
 
   return (
-    <div className="hmi-modal-backdrop" onClick={onClose}>
+    <div className={['hmi-modal-backdrop', backdropClassName].filter(Boolean).join(' ')} onClick={onClose}>
       {card}
     </div>
   );

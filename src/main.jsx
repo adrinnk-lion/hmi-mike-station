@@ -15,6 +15,9 @@ import TestFail from './screens/TechView/TestFail'
 import UploadLoading from './screens/TechView/UploadLoading'
 import UploadSuccess from './screens/TechView/UploadSuccess'
 import UploadFail from './screens/TechView/UploadFail'
+import EngineerAccess from './screens/SystemDetails/EngineerAccess'
+import SystemDetails from './screens/SystemDetails/SystemDetails'
+import EventLog from './screens/SystemDetails/EventLog'
 import { TECH_VIEW_ROUTES } from './screens/TechView/routes'
 
 createRoot(document.getElementById('root')).render(
@@ -33,6 +36,9 @@ createRoot(document.getElementById('root')).render(
           <Route path={TECH_VIEW_ROUTES.uploadLoading} element={<UploadLoading />} />
           <Route path={TECH_VIEW_ROUTES.uploadSuccess} element={<UploadSuccess />} />
           <Route path={TECH_VIEW_ROUTES.uploadFail} element={<UploadFail />} />
+          <Route path={TECH_VIEW_ROUTES.engineerAccess} element={<EngineerAccess />} />
+          <Route path={TECH_VIEW_ROUTES.systemDetails} element={<SystemDetails />} />
+          <Route path={TECH_VIEW_ROUTES.eventLog} element={<EventLog />} />
         </Route>
       </Routes>
     </BrowserRouter>

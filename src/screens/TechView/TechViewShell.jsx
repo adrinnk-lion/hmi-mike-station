@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import { ClipboardListSolidIcon, PhoneSolidIcon, LogoutOutlineIcon } from '../../icons';
+import { TECH_VIEW_ROUTES } from './routes';
 import './TechViewShell.css';
 
 const NAV_ITEMS = [
@@ -15,14 +17,19 @@ const NAV_ITEMS = [
  * Renders at a fixed 800x480 canvas, matching the real device's screen
  * resolution the Figma frames were designed at.
  */
-export default function TechViewShell({ children, onLogOut }) {
+export default function TechViewShell({ children, onLogOut, activeNavIndex = 0 }) {
+  const navigate = useNavigate();
+
   return (
     <div className="tv-viewport">
       <div className="tv-screen">
         <NavBar
           stationName="Mike Station"
           items={NAV_ITEMS}
+          selectedIndex={activeNavIndex}
           onSelect={(index) => {
+            if (index === 0 && activeNavIndex !== 0) navigate(TECH_VIEW_ROUTES.scanSerialNumber);
+            if (index === 1 && activeNavIndex !== 1) navigate(TECH_VIEW_ROUTES.engineerAccess);
             if (index === 3) onLogOut?.();
           }}
         />
