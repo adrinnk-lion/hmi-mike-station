@@ -20,7 +20,7 @@ export default function UploadLoading() {
   }, [navigate]);
 
   return (
-    <TechViewShell onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
+    <TechViewShell>
       <TechViewProgress currentStep={3} />
       <div className="tv-upload-loading tv-mt-110" onClick={() => navigate(TECH_VIEW_ROUTES.uploadSuccess)}>
         <PageText title="Uploading Test Results..." text="This may take a few minutes." />

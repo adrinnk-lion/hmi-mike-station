@@ -17,7 +17,7 @@ const NAV_ITEMS = [
  * Renders at a fixed 800x480 canvas, matching the real device's screen
  * resolution the Figma frames were designed at.
  */
-export default function TechViewShell({ children, onLogOut, activeNavIndex = 0 }) {
+export default function TechViewShell({ children, activeNavIndex = 0 }) {
   const navigate = useNavigate();
 
   return (
@@ -31,7 +31,7 @@ export default function TechViewShell({ children, onLogOut, activeNavIndex = 0 }
             if (index === 0 && activeNavIndex !== 0) navigate(TECH_VIEW_ROUTES.scanSerialNumber);
             if (index === 1 && activeNavIndex !== 1) navigate(TECH_VIEW_ROUTES.engineerAccess);
             if (index === 2 && activeNavIndex !== 2) navigate(TECH_VIEW_ROUTES.callEngineer);
-            if (index === 3) onLogOut?.();
+            if (index === 3 && activeNavIndex !== 3) navigate(TECH_VIEW_ROUTES.logOut);
           }}
         />
         <div className="tv-screen__content">

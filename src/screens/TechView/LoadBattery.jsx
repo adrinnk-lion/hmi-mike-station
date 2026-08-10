@@ -11,7 +11,7 @@ export default function LoadBattery() {
   const navigate = useNavigate();
 
   return (
-    <TechViewShell onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
+    <TechViewShell>
       <TechViewProgress currentStep={0} />
       <div className="tv-block tv-block--gap-40 tv-mt-40">
         <PageText

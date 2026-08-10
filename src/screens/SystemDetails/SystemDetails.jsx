@@ -15,7 +15,7 @@ export default function SystemDetails() {
   const [showError, setShowError] = useState(false);
 
   return (
-    <TechViewShell activeNavIndex={1} onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
+    <TechViewShell activeNavIndex={1}>
       <div className="tv-block tv-block--gap-8">
         <p className="hmi-type-body-15-semibold tv-label">SYSTEM DETAILS</p>
         <div className="tv-row tv-row--gap-12">

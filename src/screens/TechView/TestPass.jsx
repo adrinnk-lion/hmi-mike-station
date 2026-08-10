@@ -12,7 +12,7 @@ export default function TestPass() {
   const navigate = useNavigate();
 
   return (
-    <TechViewShell onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
+    <TechViewShell>
       <TechViewProgress currentStep={3} />
       <PageText variant="results" title="Test Results" status="pass" className="tv-mt-40" />
       <div className="tv-row tv-row--gap-16 tv-testpass__cards">

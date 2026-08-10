@@ -10,7 +10,7 @@ export default function UploadSuccess() {
   const navigate = useNavigate();
 
   return (
-    <TechViewShell onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
+    <TechViewShell>
       <TechViewProgress currentStep={4} />
       <PageText
         status="pass"

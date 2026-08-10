@@ -15,7 +15,7 @@ export default function HipotTest() {
   const navigate = useNavigate();
 
   return (
-    <TechViewShell onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
+    <TechViewShell>
       <TechViewProgress currentStep={2} />
       <div className="tv-hipot">
         <PageText

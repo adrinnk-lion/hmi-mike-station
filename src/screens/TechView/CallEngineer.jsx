@@ -1,16 +1,12 @@
-import { useNavigate } from 'react-router-dom';
 import TechViewShell from './TechViewShell';
 import PageText from '../../components/PageText/PageText';
 import Button from '../../components/Button/Button';
-import { TECH_VIEW_ROUTES } from './routes';
 import './TechViewScreens.css';
 import './CallEngineer.css';
 
 export default function CallEngineer() {
-  const navigate = useNavigate();
-
   return (
-    <TechViewShell activeNavIndex={2} onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
+    <TechViewShell activeNavIndex={2}>
       <PageText
         variant="pageTitle"
         title="Call Engineer"

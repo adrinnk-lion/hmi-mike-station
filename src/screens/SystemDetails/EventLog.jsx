@@ -37,7 +37,7 @@ export default function EventLog() {
   const [page, setPage] = useState(0);
 
   return (
-    <TechViewShell activeNavIndex={1} onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
+    <TechViewShell activeNavIndex={1}>
       <div className="tv-block tv-block--gap-2">
         <p className="hmi-type-body-15-semibold tv-label">EVENT LOG</p>
         <p className="hmi-type-body-14-regular tv-label tv-event-log__date">June 1st, 2026 | Monday</p>

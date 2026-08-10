@@ -14,7 +14,7 @@ export default function BatteryAnalyzerTest() {
   const navigate = useNavigate();
 
   return (
-    <TechViewShell onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
+    <TechViewShell>
       <TechViewProgress currentStep={1} />
       <div className="tv-analyzer">
         <PageText

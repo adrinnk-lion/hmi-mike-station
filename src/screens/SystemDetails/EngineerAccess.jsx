@@ -13,7 +13,7 @@ export default function EngineerAccess() {
   const [account, setAccount] = useState('');
 
   return (
-    <TechViewShell activeNavIndex={1} onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
+    <TechViewShell activeNavIndex={1}>
       <div className="tv-engineer-access__panel">
         <div className="tv-engineer-access__form">
           <StationName text="Engineer Access Only" />

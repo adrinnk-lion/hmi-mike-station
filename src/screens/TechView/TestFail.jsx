@@ -12,7 +12,7 @@ export default function TestFail() {
   const navigate = useNavigate();
 
   return (
-    <TechViewShell onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
+    <TechViewShell>
       <TechViewProgress currentStep={3} />
       <PageText variant="results" title="Test Results" status="fail" className="tv-mt-40" />
       <div className="tv-block tv-block--gap-12 tv-mt-40 tv-testfail__bars">
