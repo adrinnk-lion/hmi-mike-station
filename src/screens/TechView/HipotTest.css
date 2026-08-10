@@ -1,0 +1,32 @@
+/*
+  Like Battery Analyzer Test, this screen's blocks aren't a single Figma
+  auto-layout group — title/meter-row/body each have their own distinct
+  gap (19px, 8px, 13px), reproduced here as explicit margins.
+*/
+.tv-hipot {
+  display: flex;
+  flex-direction: column;
+}
+
+.tv-hipot__title {
+  margin-top: 19px;
+}
+
+.tv-hipot__meter {
+  margin-top: 8px;
+}
+
+.tv-hipot__body {
+  margin-top: 13px;
+  gap: 15px;
+}
+
+/* The Test Bars column is a fixed 405px in Figma; StatusBar defaults to
+   310px (its size elsewhere), so it's stretched to fill this column. */
+.tv-hipot__testbars {
+  width: 405px;
+  flex-shrink: 0;
+}
+.tv-hipot__testbars .hmi-status-bar {
+  width: 100%;
+}

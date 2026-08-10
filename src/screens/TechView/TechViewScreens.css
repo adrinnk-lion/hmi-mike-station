@@ -37,7 +37,7 @@
 .tv-cards-column {
   display: flex;
   flex-direction: column;
-  gap: var(--space-16);
+  gap: var(--space-12);
   flex-shrink: 0;
 }
 

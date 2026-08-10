@@ -9,6 +9,7 @@ import Card from '../../components/Card/Card';
 import Button from '../../components/Button/Button';
 import { TECH_VIEW_ROUTES } from './routes';
 import './TechViewScreens.css';
+import './HipotTest.css';
 
 export default function HipotTest() {
   const navigate = useNavigate();
@@ -16,14 +17,19 @@ export default function HipotTest() {
   return (
     <TechViewShell onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
       <TechViewProgress currentStep={2} />
-      <div className="tv-block tv-block--gap-24">
-        <div className="tv-row tv-row--gap-16">
+      <div className="tv-hipot">
+        <PageText
+          variant="pageTitle"
+          title="HiPot Test"
+          text="Status: 62% Complete"
+          className="tv-hipot__title"
+        />
+        <div className="tv-row tv-row--gap-12 tv-hipot__meter">
           <ProgressBar state="warning" percent={62} />
           <RoundBadge state="error" size="small" />
         </div>
-        <PageText variant="pageTitle" title="HiPot Test" text="Status: 62% Complete" />
-        <div className="tv-row tv-row--gap-16 tv-row--top">
-          <div className="tv-block tv-block--gap-12">
+        <div className="tv-row tv-row--top tv-hipot__body">
+          <div className="tv-block tv-block--gap-12 tv-hipot__testbars">
             <StatusBar state="success" text="Ramp" />
             <StatusBar state="success" text="Hold" />
             <StatusBar state="error" text="Discharge" button buttonText="Test Again" />
@@ -36,18 +42,19 @@ export default function HipotTest() {
           </div>
         </div>
       </div>
-      <div className="tv-spacer" />
-      <div className="tv-footer tv-footer--between">
-        <Button state="destructive" size="regular" onClick={() => navigate(TECH_VIEW_ROUTES.login)}>
-          Stop Test
-        </Button>
-        <div className="tv-row tv-row--gap-12">
-          <Button state="secondary" size="regular" onClick={() => navigate(TECH_VIEW_ROUTES.batteryAnalyzerTest)}>
-            Back
+      <div className="tv-screen__footer">
+        <div className="tv-footer tv-footer--between">
+          <Button state="destructive" size="regular" onClick={() => navigate(TECH_VIEW_ROUTES.login)}>
+            Stop Test
           </Button>
-          <Button size="regular" onClick={() => navigate(TECH_VIEW_ROUTES.testPass)}>
-            Next
-          </Button>
+          <div className="tv-row tv-row--gap-12">
+            <Button state="secondary" size="regular" onClick={() => navigate(TECH_VIEW_ROUTES.batteryAnalyzerTest)}>
+              Back
+            </Button>
+            <Button size="regular" onClick={() => navigate(TECH_VIEW_ROUTES.testPass)}>
+              Next
+            </Button>
+          </div>
         </div>
       </div>
     </TechViewShell>
