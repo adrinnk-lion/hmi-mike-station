@@ -5,7 +5,6 @@ import TechViewProgress from './TechViewProgress';
 import PageText from '../../components/PageText/PageText';
 import { TECH_VIEW_ROUTES } from './routes';
 import './TechViewScreens.css';
-import './UploadLoading.css';
 
 /**
  * Upload Loading — a transient screen. In Figma this whole frame is wired
@@ -23,7 +22,7 @@ export default function UploadLoading() {
   return (
     <TechViewShell onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
       <TechViewProgress currentStep={3} />
-      <div className="tv-upload-loading tv-upload-loading__title" onClick={() => navigate(TECH_VIEW_ROUTES.uploadSuccess)}>
+      <div className="tv-upload-loading tv-mt-110" onClick={() => navigate(TECH_VIEW_ROUTES.uploadSuccess)}>
         <PageText title="Uploading Test Results..." text="This may take a few minutes." />
       </div>
     </TechViewShell>

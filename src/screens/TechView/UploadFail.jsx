@@ -16,15 +16,17 @@ export default function UploadFail() {
         status="fail"
         title="Upload Failed"
         text="Test failed to upload. Please verify Netsuite connection or continue testing."
+        className="tv-mt-110"
       />
-      <div className="tv-spacer" />
-      <ButtonGroup
-        variant="done"
-        backText="Review Results"
-        finishText="Done"
-        onBack={() => navigate(TECH_VIEW_ROUTES.testPass)}
-        onFinish={() => navigate(TECH_VIEW_ROUTES.login)}
-      />
+      <div className="tv-screen__footer">
+        <ButtonGroup
+          variant="done"
+          backText="Review Results"
+          finishText="Done"
+          onBack={() => navigate(TECH_VIEW_ROUTES.testPass)}
+          onFinish={() => navigate(TECH_VIEW_ROUTES.login)}
+        />
+      </div>
     </TechViewShell>
   );
 }
