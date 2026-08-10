@@ -30,6 +30,7 @@ export default function TechViewShell({ children, onLogOut, activeNavIndex = 0 }
           onSelect={(index) => {
             if (index === 0 && activeNavIndex !== 0) navigate(TECH_VIEW_ROUTES.scanSerialNumber);
             if (index === 1 && activeNavIndex !== 1) navigate(TECH_VIEW_ROUTES.engineerAccess);
+            if (index === 2 && activeNavIndex !== 2) navigate(TECH_VIEW_ROUTES.callEngineer);
             if (index === 3) onLogOut?.();
           }}
         />

@@ -9,6 +9,7 @@ export const TECH_VIEW_ROUTES = {
   uploadLoading: '/screens/upload-loading',
   uploadSuccess: '/screens/upload-success',
   uploadFail: '/screens/upload-fail',
+  callEngineer: '/screens/call-engineer',
   engineerAccess: '/screens/engineer-access',
   systemDetails: '/screens/system-details',
   eventLog: '/screens/event-log',
