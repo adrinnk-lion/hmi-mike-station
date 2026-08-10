@@ -13,6 +13,9 @@
 .tv-block--gap-24 { gap: var(--space-24); }
 .tv-block--gap-40 { gap: var(--space-40); }
 
+/* The space between the progress bar row and a screen's own content — varies per screen in Figma, so it's applied explicitly rather than inherited from a shared parent gap. */
+.tv-mt-40 { margin-top: var(--space-40); }
+
 .tv-row {
   display: flex;
   align-items: center;

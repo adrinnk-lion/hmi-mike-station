@@ -1,4 +1,5 @@
 .hmi-badge {
+  box-sizing: border-box;
   font-family: var(--font-family-base);
   font-weight: 600;
   font-size: 15px;
@@ -55,6 +56,7 @@
 
 /* ---- Round badges (status pills) ---- */
 .hmi-round-badge {
+  box-sizing: border-box;
   font-family: var(--font-family-base);
   font-weight: 600;
   display: inline-flex;

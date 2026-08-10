@@ -1,0 +1,23 @@
+/*
+  This screen's blocks aren't wrapped in a single Figma auto-layout group —
+  each one (title, meter row, cards) is positioned independently, with
+  genuinely different gaps between each pair (19px, 8px, 22px). Reproduced
+  here as explicit margins rather than a single flex `gap`, which can only
+  express one repeated value.
+*/
+.tv-analyzer {
+  display: flex;
+  flex-direction: column;
+}
+
+.tv-analyzer__title {
+  margin-top: 19px;
+}
+
+.tv-analyzer__meter {
+  margin-top: 8px;
+}
+
+.tv-analyzer__cards {
+  margin-top: 22px;
+}

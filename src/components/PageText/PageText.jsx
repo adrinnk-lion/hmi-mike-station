@@ -19,10 +19,13 @@ export default function PageText({
   failText = 'FAIL',
   sectionText = 'Section Text',
   subText = 'Sub text for section text',
+  className: extraClassName,
 }) {
+  const rootClassName = ['hmi-page-text', extraClassName].filter(Boolean).join(' ');
+
   if (variant === 'section') {
     return (
-      <div className="hmi-page-text">
+      <div className={rootClassName}>
         <p className="hmi-page-text__section-title hmi-type-subheading-20-semibold">{sectionText}</p>
         <p className="hmi-page-text__section-sub hmi-type-subheading-18-regular">{subText}</p>
       </div>
@@ -31,7 +34,7 @@ export default function PageText({
 
   if (variant === 'results') {
     return (
-      <div className="hmi-page-text">
+      <div className={rootClassName}>
         <p className="hmi-page-text__title hmi-type-subheading-24-semibold">{title}</p>
         <div className="hmi-page-text__results">
           {status === 'pass' && (
@@ -57,7 +60,7 @@ export default function PageText({
 
   // pageTitle
   return (
-    <div className="hmi-page-text">
+    <div className={rootClassName}>
       <div className="hmi-page-text__title-row">
         <p className="hmi-page-text__title hmi-type-subheading-24-semibold">{title}</p>
         {status === 'pass' && (

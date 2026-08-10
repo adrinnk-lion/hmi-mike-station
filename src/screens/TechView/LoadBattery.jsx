@@ -13,7 +13,7 @@ export default function LoadBattery() {
   return (
     <TechViewShell onLogOut={() => navigate(TECH_VIEW_ROUTES.login)}>
       <TechViewProgress currentStep={0} />
-      <div className="tv-block tv-block--gap-40">
+      <div className="tv-block tv-block--gap-40 tv-mt-40">
         <PageText
           variant="pageTitle"
           title="Load Battery"
