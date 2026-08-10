@@ -23,48 +23,47 @@ import Foundations from './foundations/Foundations';
 import { useState } from 'react';
 import {
   ExclamationTriangleSolidIcon,
-  XCircleSolidIcon,
   ExclamationCircleSolidIcon,
   InformationCircleSolidIcon,
 } from './icons';
 import './App.css';
 
 const MODAL_EXAMPLES = {
-  alert: {
+  batteryAnalyzerError: {
     icon: <ExclamationTriangleSolidIcon size={85} />,
     iconColor: 'var(--color-error-40)',
-    title: 'Error or Alert Message',
+    title: 'Battery Analyzer Error',
     errorCode: 'Error Code: 000000',
-    subtext: 'Subtext for errors, alerts, or other information relating to the modal.',
-    cancelText: 'Cancel',
+    subtext: 'The following error has occurred with the connected cables. Please check cable connection before proceeding.',
+    cancelText: 'Okay',
     confirmText: 'Retest',
   },
-  error: {
-    icon: <XCircleSolidIcon size={85} />,
-    iconColor: 'var(--color-error-40)',
-    title: 'Test Failed',
-    errorCode: 'Error Code: 000000',
-    subtext: 'A HiPot test failed on station 3. Retest required before continuing.',
-    cancelText: 'Cancel',
-    confirmText: 'Retest',
-  },
-  warning: {
+  emergencyStop: {
     icon: <ExclamationCircleSolidIcon size={85} />,
-    iconColor: 'var(--color-warning-40)',
-    title: 'Connection Unstable',
-    errorCode: 'Warning Code: 000000',
-    subtext: 'Analyzer connection is unstable — readings may be inaccurate.',
-    cancelText: 'Dismiss',
-    confirmText: 'Continue',
+    iconColor: 'var(--color-error-40)',
+    title: 'Emergency Stop',
+    errorCode: 'Error Code: 000000',
+    subtext: 'The testing station has been stopped.',
+    cancelText: 'Okay',
+    confirmText: 'Call Engineer',
   },
-  info: {
+  stationInfo: {
     icon: <InformationCircleSolidIcon size={85} />,
     iconColor: 'var(--color-info-60)',
-    title: 'Firmware Update Available',
-    errorCode: 'Update ID: 000000',
-    subtext: 'A new firmware update is ready to install for this test station.',
-    cancelText: 'Later',
-    confirmText: 'Install Now',
+    title: 'Station Info',
+    errorCode: null,
+    subtext: 'This is the Mike station that runs the Hipot and Battery Analyzer Test.',
+    cancelText: 'Go Back',
+    confirmText: 'Okay',
+  },
+  warning: {
+    icon: <ExclamationTriangleSolidIcon size={85} />,
+    iconColor: 'var(--color-warning-40)',
+    title: 'Warning',
+    errorCode: null,
+    subtext: 'Double check all cables are wired properly before proceeding.',
+    cancelText: 'Cancel',
+    confirmText: 'Done',
   },
 };
 

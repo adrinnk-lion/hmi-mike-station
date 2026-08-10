@@ -17,7 +17,7 @@ const NAV_ITEMS = [
  * Renders at a fixed 800x480 canvas, matching the real device's screen
  * resolution the Figma frames were designed at.
  */
-export default function TechViewShell({ children, activeNavIndex = 0 }) {
+export default function TechViewShell({ children, activeNavIndex = 0, showTimestamp = true }) {
   const navigate = useNavigate();
 
   return (
@@ -36,7 +36,7 @@ export default function TechViewShell({ children, activeNavIndex = 0 }) {
         />
         <div className="tv-screen__content">
           {children}
-          <p className="tv-screen__timestamp">May 20th, 2026 | 9:21 AM</p>
+          {showTimestamp && <p className="tv-screen__timestamp">May 20th, 2026 | 9:21 AM</p>}
         </div>
       </div>
     </div>

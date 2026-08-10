@@ -11,6 +11,7 @@ export const TECH_VIEW_ROUTES = {
   uploadFail: '/screens/upload-fail',
   callEngineer: '/screens/call-engineer',
   logOut: '/screens/log-out',
+  alertFullPage: '/screens/alert-full-page',
   engineerAccess: '/screens/engineer-access',
   systemDetails: '/screens/system-details',
   eventLog: '/screens/event-log',

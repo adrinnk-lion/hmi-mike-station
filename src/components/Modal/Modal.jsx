@@ -11,6 +11,11 @@ import './Modal.css';
  * `inline` renders the modal card directly in the page flow (no backdrop or
  * fixed positioning) for static display in a component gallery. Omit it to
  * use the modal as a real overlay dialog, gated by `open`/`onClose`.
+ *
+ * `className` targets the backdrop (overlay mode only); `cardClassName`
+ * targets the card itself — the one to use for sizing/positioning an inline
+ * modal, since it has no backdrop. `errorCode` is omitted from the card
+ * entirely when falsy.
  */
 export default function Modal({
   open = true,
@@ -25,6 +30,7 @@ export default function Modal({
   onCancel,
   onConfirm,
   className: backdropClassName,
+  cardClassName,
 }) {
   useEffect(() => {
     if (inline || !open) return;
@@ -39,7 +45,7 @@ export default function Modal({
 
   const card = (
     <div
-      className="hmi-modal"
+      className={['hmi-modal', cardClassName].filter(Boolean).join(' ')}
       role="dialog"
       aria-modal={!inline || undefined}
       onClick={inline ? undefined : (e) => e.stopPropagation()}
@@ -48,7 +54,7 @@ export default function Modal({
         {icon && <div className="hmi-modal__icon">{icon}</div>}
         <div className="hmi-modal__text">
           <p className="hmi-modal__title">{title}</p>
-          <p className="hmi-modal__error-code">{errorCode}</p>
+          {errorCode && <p className="hmi-modal__error-code">{errorCode}</p>}
           <p className="hmi-modal__subtext">{subtext}</p>
         </div>
       </div>
