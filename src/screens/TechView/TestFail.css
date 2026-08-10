@@ -1,0 +1,8 @@
+/* This screen's StatusBar column is a fixed 370px in Figma; StatusBar
+   defaults to 310px (its size elsewhere), so it's stretched to fill it. */
+.tv-testfail__bars {
+  width: 370px;
+}
+.tv-testfail__bars .hmi-status-bar {
+  width: 100%;
+}
