@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import { ClipboardListSolidIcon, PhoneSolidIcon, LogoutOutlineIcon } from '../../icons';
@@ -11,6 +12,21 @@ const NAV_ITEMS = [
   { text: 'Log Out', icon: <LogoutOutlineIcon size={24} /> },
 ];
 
+/** 1 -> "1st", 2 -> "2nd", 11 -> "11th", 21 -> "21st" — matches Figma's "May 20th" style. */
+function ordinalDay(day) {
+  if (day % 100 >= 11 && day % 100 <= 13) return `${day}th`;
+  if (day % 10 === 1) return `${day}st`;
+  if (day % 10 === 2) return `${day}nd`;
+  if (day % 10 === 3) return `${day}rd`;
+  return `${day}th`;
+}
+
+function formatTimestamp(date) {
+  const month = date.toLocaleString('en-US', { month: 'long' });
+  const time = date.toLocaleString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+  return `${month} ${ordinalDay(date.getDate())}, ${date.getFullYear()} | ${time}`;
+}
+
 /**
  * TechViewShell — the sidebar + canvas frame shared by every Tech View
  * screen except Log In (which has no nav sidebar in the Figma flow).
@@ -19,6 +35,18 @@ const NAV_ITEMS = [
  */
 export default function TechViewShell({ children, activeNavIndex = 0, showTimestamp = true }) {
   const navigate = useNavigate();
+  const [timestamp, setTimestamp] = useState(() => formatTimestamp(new Date()));
+
+  /*
+    Ticks every second so the displayed minute flips promptly, rather than
+    drifting up to a minute behind a 60s interval. Re-setting the same
+    formatted string is a no-op in React, so this only re-renders when the
+    minute actually changes.
+  */
+  useEffect(() => {
+    const id = setInterval(() => setTimestamp(formatTimestamp(new Date())), 1000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <div className="tv-viewport">
@@ -36,7 +64,7 @@ export default function TechViewShell({ children, activeNavIndex = 0, showTimest
         />
         <div className="tv-screen__content">
           {children}
-          {showTimestamp && <p className="tv-screen__timestamp">May 20th, 2026 | 9:21 AM</p>}
+          {showTimestamp && <p className="tv-screen__timestamp">{timestamp}</p>}
         </div>
       </div>
     </div>

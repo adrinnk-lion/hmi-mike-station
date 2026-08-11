@@ -36,14 +36,22 @@
   flex-direction: column;
 }
 
+/*
+  Anchored to the right edge rather than Figma's literal left: 534px — the
+  timestamp is a live clock, so its width varies with the month name and
+  time ("May 20th" vs "September 30th"). A fixed left would push longer
+  dates past the canvas edge and clip them; anchoring right keeps the end
+  of the string parked where Figma has it and lets it grow leftward.
+*/
 .tv-screen__timestamp {
   position: absolute;
-  left: 534px;
+  right: var(--space-32);
   top: 448px;
   margin: 0;
   font-size: 12px;
   line-height: 18px;
   color: var(--color-neutral-100);
+  text-align: right;
   white-space: nowrap;
 }
 
