@@ -12,6 +12,7 @@ export const TECH_VIEW_ROUTES = {
   callEngineer: '/screens/call-engineer',
   logOut: '/screens/log-out',
   alertFullPage: '/screens/alert-full-page',
+  emergencyStop: '/screens/emergency-stop',
   engineerAccess: '/screens/engineer-access',
   systemDetails: '/screens/system-details',
   eventLog: '/screens/event-log',

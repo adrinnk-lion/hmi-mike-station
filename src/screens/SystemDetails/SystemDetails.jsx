@@ -47,7 +47,7 @@ export default function SystemDetails() {
       </div>
       <div className="tv-screen__footer">
         <div className="tv-footer tv-footer--between">
-          <Button state="destructive" size="regular" onClick={() => navigate(TECH_VIEW_ROUTES.login)}>
+          <Button state="destructive" size="regular" onClick={() => navigate(TECH_VIEW_ROUTES.emergencyStop)}>
             Stop Test
           </Button>
           <Button state="secondary" size="regular" onClick={() => navigate(TECH_VIEW_ROUTES.eventLog)}>

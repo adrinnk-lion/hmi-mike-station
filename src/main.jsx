@@ -18,6 +18,7 @@ import UploadFail from './screens/TechView/UploadFail'
 import CallEngineer from './screens/TechView/CallEngineer'
 import LogOut from './screens/TechView/LogOut'
 import AlertFullPage from './screens/TechView/AlertFullPage'
+import EmergencyStop from './screens/TechView/EmergencyStop'
 import EngineerAccess from './screens/SystemDetails/EngineerAccess'
 import SystemDetails from './screens/SystemDetails/SystemDetails'
 import EventLog from './screens/SystemDetails/EventLog'
@@ -42,6 +43,7 @@ createRoot(document.getElementById('root')).render(
           <Route path={TECH_VIEW_ROUTES.callEngineer} element={<CallEngineer />} />
           <Route path={TECH_VIEW_ROUTES.logOut} element={<LogOut />} />
           <Route path={TECH_VIEW_ROUTES.alertFullPage} element={<AlertFullPage />} />
+          <Route path={TECH_VIEW_ROUTES.emergencyStop} element={<EmergencyStop />} />
           <Route path={TECH_VIEW_ROUTES.engineerAccess} element={<EngineerAccess />} />
           <Route path={TECH_VIEW_ROUTES.systemDetails} element={<SystemDetails />} />
           <Route path={TECH_VIEW_ROUTES.eventLog} element={<EventLog />} />

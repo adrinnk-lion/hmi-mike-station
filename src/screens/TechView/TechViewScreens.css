@@ -57,3 +57,101 @@
 .tv-upload-loading {
   cursor: pointer;
 }
+
+/*
+  Shared by full-page alert screens (Alert Full Page, Emergency Stop) — a
+  full-bleed tint positioned absolute at inset:0 within .tv-screen__content,
+  which bypasses that container's own padding so the tint reaches every edge
+  of the content area, matching Figma. The content block inside is positioned
+  using that same coordinate space.
+*/
+.tv-full-page-alert {
+  position: absolute;
+  inset: 0;
+  background: var(--color-error-10);
+}
+
+/*
+  These screens are named "Modal" in Figma, but the instances there have
+  their card styling stripped — no background, border, radius, or padding.
+  The content sits directly on the page tint, so this is deliberately NOT
+  built from the Modal component (which would force a white bordered card).
+  Height is left to content, which computes to Figma's 318px.
+*/
+.tv-full-page-alert__content {
+  position: absolute;
+  left: 69px;
+  top: 81px;
+  width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+
+.tv-full-page-alert__text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+.tv-full-page-alert__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 85px;
+  height: 85px;
+  color: var(--color-error-40);
+}
+
+.tv-full-page-alert__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-12);
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-family-base);
+}
+
+.tv-full-page-alert__title {
+  margin: 0;
+  width: 100%;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: normal;
+  color: var(--color-neutral-100);
+}
+
+.tv-full-page-alert__body {
+  margin: 0;
+  width: 100%;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 29px;
+  color: var(--color-neutral-80);
+}
+
+.tv-full-page-alert__subtext {
+  margin: 0;
+  width: 100%;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+  color: var(--color-neutral-80);
+}
+
+.tv-full-page-alert__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-12);
+  width: 100%;
+}
+
+.tv-full-page-alert__button {
+  flex: 1 0 0;
+  width: auto;
+}

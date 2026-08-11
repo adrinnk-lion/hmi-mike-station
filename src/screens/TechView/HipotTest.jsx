@@ -44,7 +44,7 @@ export default function HipotTest() {
       </div>
       <div className="tv-screen__footer">
         <div className="tv-footer tv-footer--between">
-          <Button state="destructive" size="regular" onClick={() => navigate(TECH_VIEW_ROUTES.login)}>
+          <Button state="destructive" size="regular" onClick={() => navigate(TECH_VIEW_ROUTES.emergencyStop)}>
             Stop Test
           </Button>
           <div className="tv-row tv-row--gap-12">
