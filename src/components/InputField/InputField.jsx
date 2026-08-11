@@ -5,6 +5,10 @@ import './InputField.css';
 /**
  * InputField — matches the Figma "Input Field" component set.
  * Figma variant property: State (Default/Active/Error/Disabled).
+ *
+ * Manages its own text unless `value` is passed, in which case the caller
+ * owns it (needed when something other than typing sets the text — e.g. a
+ * scanned ID card filling the field).
  */
 export default function InputField({
   state = 'default',      // 'default' | 'active' | 'error' | 'disabled'
@@ -17,21 +21,23 @@ export default function InputField({
   placeholderText = 'Placeholder Text',
   description = true,
   descriptionText = 'This section should be used to describe input',
+  value: controlledValue,  // optional — omit to let the field manage its own text
   onValueChange,           // optional (value: string) => void, fired on change/clear
 }) {
-  const [value, setValue] = useState('');
+  const [internalValue, setInternalValue] = useState('');
+  const isControlled = controlledValue !== undefined;
+  const value = isControlled ? controlledValue : internalValue;
   const disabled = state === 'disabled';
   const className = ['hmi-input-field', `hmi-input-field--${state}`].join(' ');
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
-    onValueChange?.(e.target.value);
+  const setValue = (next) => {
+    if (!isControlled) setInternalValue(next);
+    onValueChange?.(next);
   };
 
-  const handleClear = () => {
-    setValue('');
-    onValueChange?.('');
-  };
+  const handleChange = (e) => setValue(e.target.value);
+
+  const handleClear = () => setValue('');
 
   return (
     <div className={className}>
