@@ -60,8 +60,9 @@ export function readingsAt(elapsedMs, { settled = false } = {}) {
  * since you reach these screens by starting the test, unless `id` already has a
  * run recorded this session, in which case it resumes exactly where it was.
  *
- * `stopAtPercent` sets the target for a *fresh* run; `restart` can override it,
- * which is how a failing test is re-run to completion.
+ * `stopAtPercent` sets the target for a *fresh* run. `restart` can override it
+ * and can resume from partway in, which is how a single failed stage is re-run
+ * without redoing the stages that already passed.
  */
 export default function useTestRun({ id, stopAtPercent = 100 } = {}) {
   const [run, setRun] = useState(() => runs.get(id) ?? { elapsedMs: 0, stopAtPercent });
@@ -89,7 +90,10 @@ export default function useTestRun({ id, stopAtPercent = 100 } = {}) {
     percent,
     finished,
     readings: readingsAt(run.elapsedMs, { settled: finished }),
-    restart: ({ stopAtPercent: nextTarget } = {}) =>
-      setRun((prev) => ({ elapsedMs: 0, stopAtPercent: nextTarget ?? prev.stopAtPercent })),
+    restart: ({ fromPercent = 0, stopAtPercent: nextTarget } = {}) =>
+      setRun((prev) => ({
+        elapsedMs: RUN_MS * (fromPercent / 100),
+        stopAtPercent: nextTarget ?? prev.stopAtPercent,
+      })),
   };
 }

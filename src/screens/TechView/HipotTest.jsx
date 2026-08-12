@@ -46,7 +46,11 @@ export default function HipotTest() {
   const passed = percent >= 100;
   const failed = finished && !passed;
 
-  const handleTestAgain = () => restart({ stopAtPercent: 100 });
+  /*
+    Re-runs just the stage that gave out, rewinding to where that stage began so
+    the ones already signed off aren't repeated, then carries on to the end.
+  */
+  const retryStage = (stage) => restart({ fromPercent: stage.startsAt, stopAtPercent: 100 });
 
   return (
     <TechViewShell>
@@ -73,7 +77,7 @@ export default function HipotTest() {
                   text={stage.text}
                   button={state === 'error'}
                   buttonText="Test Again"
-                  onButtonClick={handleTestAgain}
+                  onButtonClick={() => retryStage(stage)}
                 />
               );
             })}
