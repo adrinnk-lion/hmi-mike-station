@@ -5,7 +5,7 @@ import TechViewProgress from './TechViewProgress';
 import PageText from '../../components/PageText/PageText';
 import InputField from '../../components/InputField/InputField';
 import Button from '../../components/Button/Button';
-import ScanRig, { Barcode, BarcodeScanner } from './ScanRig';
+import ScanRig, { BarcodeScanner, BatteryPack } from './ScanRig';
 import useDragToScan from './useDragToScan';
 import { TECH_VIEW_ROUTES } from './routes';
 import './TechViewScreens.css';
@@ -34,23 +34,7 @@ export default function ScanSerialNumber() {
 
   const rig = (
     <ScanRig hint={hint}>
-      <div
-        ref={scan.targetRef}
-        className={`tv-scan-target tv-battery${scan.armed ? ' tv-scan-target--armed' : ''}`}
-      >
-        <div className="tv-battery__terminals">
-          <span className="tv-battery__terminal" />
-          <span className="tv-battery__terminal" />
-        </div>
-        <div className="tv-battery__body">
-          <span className="tv-battery__org">LION ENERGY</span>
-          <span className="tv-battery__spec">LiFePO4 · 48V · 100Ah</span>
-          <div className="tv-battery__strip">
-            <Barcode />
-            <span className="tv-battery__serial">{BATTERY_SERIAL}</span>
-          </div>
-        </div>
-      </div>
+      <BatteryPack ref={scan.targetRef} armed={scan.armed} serial={BATTERY_SERIAL} />
 
       <BarcodeScanner
         ref={scan.dragRef}

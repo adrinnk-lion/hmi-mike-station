@@ -1,0 +1,40 @@
+/*
+  ---- Station bay ----
+  The slot the battery is pushed into. Taller than the pack so its frame stays
+  visible around the pack once seated, reading as inserted rather than replaced.
+  Shared rig/battery styles live in ScanRig.css.
+*/
+.tv-bay {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 152px;
+  padding: var(--space-8);
+  background: var(--color-neutral-30);
+  border: var(--space-2) dashed var(--color-neutral-50);
+  border-radius: 10px;
+  font-family: var(--font-family-base);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+/* Battery is over the bay and ready to seat. */
+.tv-bay--armed {
+  background: var(--color-neutral-40);
+  border-color: var(--color-info-60);
+}
+
+/* Occupied — solid edge, since there's nothing left to drop in. */
+.tv-bay--filled {
+  border-style: solid;
+  border-color: var(--color-neutral-50);
+}
+
+.tv-bay__label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-neutral-70);
+}

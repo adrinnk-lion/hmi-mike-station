@@ -17,13 +17,14 @@ export default function ButtonGroup({
   onFinish,
   page = 1,
   totalPages = 7,
+  nextDisabled = false,   // gates the forward button when a step isn't complete
 }) {
   const className = ['hmi-button-group', `hmi-button-group--${variant}`].join(' ');
 
   if (variant === 'one') {
     return (
       <div className={className}>
-        <Button size="regular" className="hmi-button-group__flex" onClick={onNext}>{nextText}</Button>
+        <Button size="regular" className="hmi-button-group__flex" disabled={nextDisabled} onClick={onNext}>{nextText}</Button>
       </div>
     );
   }
@@ -32,7 +33,7 @@ export default function ButtonGroup({
     return (
       <div className={className}>
         <Button size="regular" state="secondary" onClick={onBack}>{backText}</Button>
-        <Button size="regular" onClick={onNext}>{nextText}</Button>
+        <Button size="regular" disabled={nextDisabled} onClick={onNext}>{nextText}</Button>
       </div>
     );
   }

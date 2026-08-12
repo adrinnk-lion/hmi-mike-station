@@ -62,6 +62,45 @@ export function IdCard({ ref, armed = false, name = 'Employee Name', role = 'Tec
 }
 
 /**
+ * A battery pack. It's the scan target on Scan Serial Number and the draggable
+ * on Load Battery, so pass `draggable` to switch which base class it carries.
+ */
+export function BatteryPack({
+  ref,
+  serial,
+  draggable = false,
+  armed = false,
+  dragging = false,
+  locked = false,
+  ...rest
+}) {
+  const className = [
+    draggable ? 'tv-prop' : 'tv-scan-target',
+    'tv-battery',
+    dragging && 'tv-prop--dragging',
+    locked && 'tv-prop--locked',
+    armed && 'tv-scan-target--armed',
+  ].filter(Boolean).join(' ');
+
+  return (
+    <div ref={ref} className={className} {...rest}>
+      <div className="tv-battery__terminals">
+        <span className="tv-battery__terminal" />
+        <span className="tv-battery__terminal" />
+      </div>
+      <div className="tv-battery__body">
+        <span className="tv-battery__org">LION ENERGY</span>
+        <span className="tv-battery__spec">LiFePO4 · 48V · 100Ah</span>
+        <div className="tv-battery__strip">
+          <Barcode />
+          <span className="tv-battery__serial">{serial}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
  * The station's handheld barcode scanner — the draggable, since the real ones
  * are portable: you pick it up and pass it over a label. `armed` = it's over
  * something readable; `scanning` = mid-read.
