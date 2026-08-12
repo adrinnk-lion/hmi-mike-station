@@ -20,10 +20,11 @@ export default function SystemDetails() {
         <p className="hmi-type-body-15-semibold tv-label">SYSTEM DETAILS</p>
         <div className="tv-row tv-row--gap-12">
           <StatusCard header="PLC" state="success" status="Connected" />
-          <StatusCard header="ANALYZER" state="error" status="Error" />
-          <StatusCard header="HIPOT" state="idle" status="Idle" dot={false} />
+          <StatusCard header="ANALYZER" state="success" status="Connected" />
+          <StatusCard header="HIPOT" state="error" status="Error" />
           <StatusCard header="RS232" state="success" status="Healthy" />
-          <StatusCard header="NETSUITE" state="success" status="Connected" />
+          {/* Idle carries no status dot, matching the design's idle variant. */}
+          <StatusCard header="NETSUITE" state="idle" status="Idle" dot={false} />
         </div>
       </div>
       <div className="tv-block tv-block--gap-12 tv-mt-32">
@@ -31,17 +32,21 @@ export default function SystemDetails() {
           <p className="hmi-type-body-15-semibold tv-label">CURRENT TEST</p>
           <p className="hmi-type-body-15-regular tv-label">Serial Number: 0120912349234</p>
         </div>
+        {/*
+          The failure sits on HiPot, matching the test flow — the analyzer
+          passes and HiPot is the stage that gives out.
+        */}
         <div className="tv-system-details__bars-grid">
           <StatusBar state="success" text="Door Closed" />
-          <StatusBar state="pending" text="HiPot Test" />
-          <StatusBar state="success" text="Battery Connected" />
-          <StatusBar state="default" text="Upload Results" />
           <StatusBar
             state="error"
-            text="Battery Analyzer"
+            text="HiPot Test"
             buttonText="Details"
             onButtonClick={() => setShowError(true)}
           />
+          <StatusBar state="success" text="Battery Connected" />
+          <StatusBar state="default" text="Upload Results" />
+          <StatusBar state="success" text="Battery Analyzer" />
           <StatusBar state="default" text="Complete" />
         </div>
       </div>
@@ -62,9 +67,9 @@ export default function SystemDetails() {
         onConfirm={() => setShowError(false)}
         className="tv-system-details__modal-backdrop"
         icon={<span style={{ color: 'var(--color-error-40)' }}><ExclamationTriangleSolidIcon size={85} /></span>}
-        title="Battery Analyzer Error"
-        errorCode="Error Code: 000000"
-        subtext="The following error has occurred with the connected cables. Please check cable connection before proceeding."
+        title="HiPot Test Error"
+        errorCode="Error Code: HP-0412"
+        subtext="Residual voltage of 212 V remained 5s after ramp-down, above the 60 V safe limit. Check the discharge relay and HiPot lead connections before retesting."
       />
     </TechViewShell>
   );
