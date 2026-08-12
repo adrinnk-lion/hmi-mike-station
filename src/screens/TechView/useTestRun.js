@@ -17,6 +17,19 @@ const SOC_END = 91;
 const VOLTAGE = 52.4;
 const CURRENT = 4.9;
 
+/*
+  Where each test's progress lives, so revisiting a screen mid-session shows the
+  run as you left it instead of restarting it. Module scope rather than state
+  lifted into a provider: it needs to outlive the screens, not be shared with
+  them, and a page reload clearing it is the right session boundary.
+*/
+const runs = new Map();
+
+/** Called when a battery is done with, so the next one tests from scratch. */
+export function resetTestRuns() {
+  runs.clear();
+}
+
 function formatElapsed(totalSeconds) {
   const mins = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
   const secs = String(totalSeconds % 60).padStart(2, '0');
@@ -42,29 +55,41 @@ export function readingsAt(elapsedMs, { settled = false } = {}) {
 }
 
 /**
- * Drives a simulated test run, ticking from 0 up to `stopAtPercent` — 100 for a
- * test that passes, less for one that fails partway. Starts on mount, since you
- * reach these screens by starting the test.
+ * Drives a simulated test run, ticking from 0 up to a target percentage — 100
+ * for a test that passes, less for one that fails partway. Starts on mount,
+ * since you reach these screens by starting the test, unless `id` already has a
+ * run recorded this session, in which case it resumes exactly where it was.
+ *
+ * `stopAtPercent` sets the target for a *fresh* run; `restart` can override it,
+ * which is how a failing test is re-run to completion.
  */
-export default function useTestRun({ stopAtPercent = 100 } = {}) {
-  const [elapsedMs, setElapsedMs] = useState(0);
+export default function useTestRun({ id, stopAtPercent = 100 } = {}) {
+  const [run, setRun] = useState(() => runs.get(id) ?? { elapsedMs: 0, stopAtPercent });
 
-  const stopAtMs = RUN_MS * (stopAtPercent / 100);
-  const percent = Math.min(stopAtPercent, Math.round((elapsedMs / RUN_MS) * 100));
-  const finished = elapsedMs >= stopAtMs;
+  useEffect(() => {
+    runs.set(id, run);
+  }, [id, run]);
+
+  const targetMs = RUN_MS * (run.stopAtPercent / 100);
+  const percent = Math.min(run.stopAtPercent, Math.round((run.elapsedMs / RUN_MS) * 100));
+  const finished = run.elapsedMs >= targetMs;
 
   useEffect(() => {
     if (finished) return;
     const timer = setInterval(() => {
-      setElapsedMs((ms) => Math.min(ms + TICK_MS, stopAtMs));
+      setRun((prev) => ({
+        ...prev,
+        elapsedMs: Math.min(prev.elapsedMs + TICK_MS, RUN_MS * (prev.stopAtPercent / 100)),
+      }));
     }, TICK_MS);
     return () => clearInterval(timer);
-  }, [finished, stopAtMs]);
+  }, [finished]);
 
   return {
     percent,
     finished,
-    readings: readingsAt(elapsedMs, { settled: finished }),
-    restart: () => setElapsedMs(0),
+    readings: readingsAt(run.elapsedMs, { settled: finished }),
+    restart: ({ stopAtPercent: nextTarget } = {}) =>
+      setRun((prev) => ({ elapsedMs: 0, stopAtPercent: nextTarget ?? prev.stopAtPercent })),
   };
 }

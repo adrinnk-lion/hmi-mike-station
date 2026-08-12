@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TechViewShell from './TechViewShell';
 import TechViewProgress from './TechViewProgress';
@@ -37,20 +36,17 @@ function stageState(stage, percent, failed) {
 
 export default function HipotTest() {
   const navigate = useNavigate();
-  /* First attempt fails partway; a retry runs clean to the end. */
-  const [retrying, setRetrying] = useState(false);
 
+  /* First attempt gives out partway; Test Again re-runs it clean to the end. */
   const { percent, finished, readings, restart } = useTestRun({
-    stopAtPercent: retrying ? 100 : FAIL_PERCENT,
+    id: 'hipot',
+    stopAtPercent: FAIL_PERCENT,
   });
 
   const passed = percent >= 100;
   const failed = finished && !passed;
 
-  const handleTestAgain = () => {
-    setRetrying(true);
-    restart();
-  };
+  const handleTestAgain = () => restart({ stopAtPercent: 100 });
 
   return (
     <TechViewShell>

@@ -13,7 +13,7 @@ import './BatteryAnalyzerTest.css';
 
 export default function BatteryAnalyzerTest() {
   const navigate = useNavigate();
-  const { percent, finished, readings } = useTestRun();
+  const { percent, finished, readings } = useTestRun({ id: 'analyzer' });
 
   return (
     <TechViewShell>

@@ -3,6 +3,7 @@ import TechViewShell from './TechViewShell';
 import TechViewProgress from './TechViewProgress';
 import PageText from '../../components/PageText/PageText';
 import ButtonGroup from '../../components/ButtonGroup/ButtonGroup';
+import { resetTestRuns } from './useTestRun';
 import { TECH_VIEW_ROUTES } from './routes';
 import './TechViewScreens.css';
 
@@ -24,7 +25,10 @@ export default function UploadFail() {
           backText="Review Results"
           finishText="Done"
           onBack={() => navigate(TECH_VIEW_ROUTES.testPass)}
-          onFinish={() => navigate(TECH_VIEW_ROUTES.login)}
+          onFinish={() => {
+            resetTestRuns();   // done with this battery
+            navigate(TECH_VIEW_ROUTES.login);
+          }}
         />
       </div>
     </TechViewShell>
