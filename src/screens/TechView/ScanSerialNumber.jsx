@@ -85,7 +85,12 @@ export default function ScanSerialNumber() {
         </div>
       </div>
       <div className="tv-screen__footer">
-        <Button size="regular" className="tv-scan__submit" onClick={() => navigate(TECH_VIEW_ROUTES.loadBattery)}>
+        <Button
+          size="regular"
+          className="tv-scan__submit"
+          disabled={!serial}
+          onClick={() => navigate(TECH_VIEW_ROUTES.loadBattery)}
+        >
           Next
         </Button>
       </div>
