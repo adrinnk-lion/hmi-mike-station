@@ -1,3 +1,4 @@
+import { LionLogoIcon, UserSolidIcon } from '../../icons';
 import './ScanRig.css';
 
 /*
@@ -26,6 +27,37 @@ export function Barcode() {
     >
       {bars}
     </svg>
+  );
+}
+
+/**
+ * An employee ID card — the thing the scanner reads on the log-in screens.
+ * It's the drop target, so `armed` lights it up when the scanner is over it.
+ */
+export function IdCard({ ref, armed = false, name = 'Employee Name', role = 'Technician', id }) {
+  return (
+    <div
+      ref={ref}
+      className={`tv-scan-target tv-card${armed ? ' tv-scan-target--armed' : ''}`}
+    >
+      <div className="tv-card__header">
+        <LionLogoIcon size={22} />
+        <span className="tv-card__org">LION ENERGY</span>
+      </div>
+      <div className="tv-card__body">
+        <div className="tv-card__photo">
+          <UserSolidIcon size={26} />
+        </div>
+        <div className="tv-card__details">
+          <span className="tv-card__name">{name}</span>
+          <span className="tv-card__role">{role}</span>
+        </div>
+      </div>
+      <div className="tv-card__strip">
+        <Barcode />
+        <span className="tv-card__number">{id}</span>
+      </div>
+    </div>
   );
 }
 

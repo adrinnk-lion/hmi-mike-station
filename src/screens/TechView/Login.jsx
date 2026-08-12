@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import StationName from '../../components/StationName/StationName';
 import InputField from '../../components/InputField/InputField';
 import Button from '../../components/Button/Button';
-import { IdentificationSolidIcon, LionLogoIcon, UserSolidIcon } from '../../icons';
-import ScanRig, { Barcode, BarcodeScanner } from './ScanRig';
+import { IdentificationSolidIcon } from '../../icons';
+import ScanRig, { BarcodeScanner, IdCard } from './ScanRig';
 import useDragToScan from './useDragToScan';
 import { TECH_VIEW_ROUTES } from './routes';
 import './TechViewShell.css';
@@ -45,28 +45,7 @@ export default function Login() {
   return (
     <div className="tv-viewport tv-viewport--with-rig">
       <ScanRig hint={hint} hidden={loggedIn}>
-        <div
-          ref={scan.targetRef}
-          className={`tv-scan-target tv-card${scan.armed ? ' tv-scan-target--armed' : ''}`}
-        >
-          <div className="tv-card__header">
-            <LionLogoIcon size={22} />
-            <span className="tv-card__org">LION ENERGY</span>
-          </div>
-          <div className="tv-card__body">
-            <div className="tv-card__photo">
-              <UserSolidIcon size={26} />
-            </div>
-            <div className="tv-card__details">
-              <span className="tv-card__name">Employee Name</span>
-              <span className="tv-card__role">Technician</span>
-            </div>
-          </div>
-          <div className="tv-card__strip">
-            <Barcode />
-            <span className="tv-card__number">{CARD_ID}</span>
-          </div>
-        </div>
+        <IdCard ref={scan.targetRef} armed={scan.armed} role="Technician" id={CARD_ID} />
 
         <BarcodeScanner
           ref={scan.dragRef}
