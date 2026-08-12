@@ -33,7 +33,12 @@ function formatTimestamp(date) {
  * Renders at a fixed 800x480 canvas, matching the real device's screen
  * resolution the Figma frames were designed at.
  */
-export default function TechViewShell({ children, activeNavIndex = 0, showTimestamp = true }) {
+export default function TechViewShell({
+  children,
+  activeNavIndex = 0,
+  showTimestamp = true,
+  rig = null,   // optional physical props (see ScanRig) shown beside the canvas
+}) {
   const navigate = useNavigate();
   const [timestamp, setTimestamp] = useState(() => formatTimestamp(new Date()));
 
@@ -49,7 +54,8 @@ export default function TechViewShell({ children, activeNavIndex = 0, showTimest
   }, []);
 
   return (
-    <div className="tv-viewport">
+    <div className={`tv-viewport${rig ? ' tv-viewport--with-rig' : ''}`}>
+      {rig}
       <div className="tv-screen">
         <NavBar
           stationName="Mike Station"

@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+/* Spacing between the device canvas and a ScanRig of physical props beside it. */
+.tv-viewport--with-rig {
+  gap: var(--space-40);
+}
+
 .tv-screen {
   position: relative;
   width: 800px;

@@ -42,36 +42,12 @@
 }
 
 /*
-  ---- ID card scan prototype ----
-  The ID card and barcode scanner are physical props, so they live entirely
-  OUTSIDE the 800x480 canvas (which represents the device's own screen at
-  Figma fidelity) on a rig beside it. Nothing here draws inside the canvas,
-  so the screen itself still matches the design exactly.
+  ---- Employee ID card ----
+  What the handheld scanner reads on this screen. Shared rig/scanner/target
+  styles live in ScanRig.css; this is only the card's own face.
 */
-.tv-login__stage {
-  gap: var(--space-40);
-}
-
-.tv-login__rig {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-16);
-  flex-shrink: 0;
-  width: 200px;
-  transition: opacity 0.25s ease;
-}
-/* The props have served their purpose once you're logged in. */
-.tv-login__rig--gone {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.tv-login__card {
+.tv-card {
   box-sizing: border-box;
-  /* Positioned so it paints above .tv-screen once dragged over the device. */
-  position: relative;
-  z-index: 10;
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
@@ -82,44 +58,28 @@
   border: var(--space-1) solid var(--color-neutral-50);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
-  font-family: var(--font-family-base);
-  cursor: grab;
-  user-select: none;
-  /* Required so a touch drag moves the card instead of scrolling the page. */
-  touch-action: none;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-.tv-login__card:focus-visible {
-  outline: 2px solid var(--color-info-40);
-  outline-offset: 3px;
-}
-.tv-login__card--dragging {
-  cursor: grabbing;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.28);
-  /* No transform transition while dragging, or the card lags the pointer. */
-  transition: box-shadow 0.18s ease;
 }
 
-.tv-login__card-header {
+.tv-card__header {
   display: flex;
   align-items: center;
   gap: var(--space-6);
 }
-.tv-login__card-org {
+.tv-card__org {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.08em;
   color: var(--color-neutral-80);
 }
 
-.tv-login__card-body {
+.tv-card__body {
   display: flex;
   align-items: center;
   gap: var(--space-10);
   flex: 1 0 0;
   min-height: 0;
 }
-.tv-login__card-photo {
+.tv-card__photo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,114 +90,31 @@
   background: var(--color-neutral-30);
   color: var(--color-neutral-70);
 }
-.tv-login__card-details {
+.tv-card__details {
   display: flex;
   flex-direction: column;
   min-width: 0;
 }
-.tv-login__card-name {
+.tv-card__name {
   font-size: 12px;
   font-weight: 600;
   line-height: 18px;
   color: var(--color-neutral-100);
 }
-.tv-login__card-role {
+.tv-card__role {
   font-size: 10px;
   line-height: 15px;
   color: var(--color-neutral-70);
 }
 
-.tv-login__card-strip {
+.tv-card__strip {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-2);
 }
-.tv-login__barcode {
-  display: block;
-  width: 100%;
-  height: 22px;
-  color: var(--color-neutral-100);
-  fill: currentColor;
-}
-.tv-login__card-number {
+.tv-card__number {
   font-size: 9px;
   letter-spacing: 0.14em;
   color: var(--color-neutral-80);
-}
-
-.tv-login__hint {
-  width: 100%;
-  margin: 0;
-  text-align: center;
-  font-family: var(--font-family-base);
-  font-size: 12px;
-  line-height: 18px;
-  color: var(--color-neutral-90);
-}
-
-/* ---- Barcode scanner: the drop target the card is dragged onto ---- */
-.tv-login__scanner {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-6);
-  width: 100%;
-  padding: var(--space-10) var(--space-12) var(--space-8);
-  background: var(--color-neutral-80);
-  border: var(--space-1) solid var(--color-neutral-90);
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  font-family: var(--font-family-base);
-  transition: box-shadow 0.15s ease, transform 0.15s ease;
-}
-/* Card is hovering over the scanner — show it's ready to read. */
-.tv-login__scanner--armed {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(216, 50, 50, 0.5);
-}
-
-.tv-login__scanner-window {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 44px;
-  overflow: hidden;
-  background: var(--color-neutral-100);
-  border-radius: 6px;
-}
-
-/* Idle: a dim resting laser line. Armed: bright. Scanning: sweeps down. */
-.tv-login__scanner-beam {
-  width: 78%;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--color-error-40);
-  opacity: 0.35;
-  transition: opacity 0.15s ease;
-}
-.tv-login__scanner--armed .tv-login__scanner-beam {
-  opacity: 0.85;
-  box-shadow: 0 0 8px 1px rgba(216, 50, 50, 0.9);
-}
-/* One pass, matching SCAN_DURATION_MS in Login.jsx. */
-.tv-login__scanner--scanning .tv-login__scanner-beam {
-  opacity: 1;
-  box-shadow: 0 0 10px 2px rgba(216, 50, 50, 0.95);
-  animation: tv-login-scan-sweep 0.7s linear;
-}
-@keyframes tv-login-scan-sweep {
-  from { transform: translateY(-18px); }
-  to { transform: translateY(18px); }
-}
-
-.tv-login__scanner-label {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-neutral-40);
 }

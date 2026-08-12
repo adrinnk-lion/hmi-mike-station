@@ -1,0 +1,156 @@
+/*
+  ---- Barcode scan prototype: shared rig ----
+  The scanner and whatever gets scanned are physical props, so they live
+  entirely OUTSIDE the 800x480 canvas (which represents the device's own
+  screen at Figma fidelity) on a rig beside it. Nothing here draws inside the
+  canvas, so the screens themselves still match the design exactly.
+*/
+.tv-rig {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-16);
+  flex-shrink: 0;
+  width: 200px;
+  transition: opacity 0.25s ease;
+}
+/* The props have served their purpose once the step is done. */
+.tv-rig--gone {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tv-rig__hint {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-family-base);
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--color-neutral-90);
+}
+
+/* Base for the draggable prop (the handheld scanner). */
+.tv-prop {
+  box-sizing: border-box;
+  /* Positioned so it paints above .tv-screen once dragged over the device. */
+  position: relative;
+  z-index: 10;
+  font-family: var(--font-family-base);
+  cursor: grab;
+  user-select: none;
+  /* Required so a touch drag moves the prop instead of scrolling the page. */
+  touch-action: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.tv-prop:focus-visible {
+  outline: 2px solid var(--color-info-40);
+  outline-offset: 3px;
+}
+.tv-prop--dragging {
+  cursor: grabbing;
+  /* No transform transition while dragging, or the prop lags the pointer. */
+  transition: box-shadow 0.18s ease;
+}
+
+.tv-barcode {
+  display: block;
+  width: 100%;
+  height: 22px;
+  color: var(--color-neutral-100);
+  fill: currentColor;
+}
+
+/*
+  The item being read (ID card, battery). It's the drop target, so it lights up
+  when the handheld scanner is passed over it.
+*/
+.tv-scan-target {
+  transition: filter 0.15s ease;
+}
+/*
+  Deliberately outline + filter rather than box-shadow: the targets set their
+  own box-shadow at the same specificity, so a box-shadow here would win or
+  lose purely on stylesheet order.
+*/
+.tv-scan-target--armed {
+  outline: 2px solid var(--color-error-40);
+  outline-offset: 3px;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 6px rgba(216, 50, 50, 0.6));
+}
+
+/* ---- The handheld scanner: the draggable ---- */
+.tv-scanner {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  width: 100%;
+  padding: var(--space-10) var(--space-12) var(--space-8);
+  background: var(--color-neutral-80);
+  border: var(--space-1) solid var(--color-neutral-90);
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-family-base);
+}
+/*
+  Over a readable label — glow to show it's ready. No transform here: the drag
+  owns the scanner's transform via an inline style, which would win anyway.
+*/
+.tv-scanner--armed {
+  box-shadow: 0 4px 14px rgba(216, 50, 50, 0.5);
+}
+
+/* Grip line, hinting this unit is meant to be picked up. */
+.tv-scanner__grip {
+  width: 46px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--color-neutral-70);
+}
+
+.tv-scanner__window {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  overflow: hidden;
+  background: var(--color-neutral-100);
+  border-radius: 6px;
+}
+
+/* Idle: a dim resting laser line. Armed: bright. Scanning: sweeps down. */
+.tv-scanner__beam {
+  width: 78%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-error-40);
+  opacity: 0.35;
+  transition: opacity 0.15s ease;
+}
+.tv-scanner--armed .tv-scanner__beam {
+  opacity: 0.85;
+  box-shadow: 0 0 8px 1px rgba(216, 50, 50, 0.9);
+}
+/* One pass, matching SCAN_DURATION_MS in useDragToScan.js. */
+.tv-scanner--scanning .tv-scanner__beam {
+  opacity: 1;
+  box-shadow: 0 0 10px 2px rgba(216, 50, 50, 0.95);
+  animation: tv-scan-sweep 0.7s linear;
+}
+@keyframes tv-scan-sweep {
+  from { transform: translateY(-18px); }
+  to { transform: translateY(18px); }
+}
+
+.tv-scanner__label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-neutral-40);
+}
