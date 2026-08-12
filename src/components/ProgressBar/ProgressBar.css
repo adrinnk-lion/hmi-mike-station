@@ -7,12 +7,18 @@
   border: var(--space-half) solid var(--color-neutral-50);
   border-radius: 100px;
   background: var(--color-neutral-30);
+  /*
+    Clips the fill to the track's pill shape, so at 100% its square trailing
+    edge takes the track's rounded end instead of cutting it flat.
+  */
+  overflow: hidden;
 }
 
 .hmi-progress-bar__fill {
   box-sizing: border-box;
   height: 100%;
   border: var(--space-half) solid;
+  /* Flat leading edge while advancing; the track rounds it off once full. */
   border-radius: 100px 0 0 100px;
 }
 .hmi-progress-bar__fill--success {
