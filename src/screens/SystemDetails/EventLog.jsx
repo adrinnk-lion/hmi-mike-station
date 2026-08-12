@@ -57,9 +57,15 @@ export default function EventLog() {
             </Button>
           )}
           <p className="hmi-type-body-16-regular tv-label tv-event-log__page-text">Page {page + 1}/{PAGES.length}</p>
-          <Button size="regular" onClick={() => page < PAGES.length - 1 && setPage(page + 1)}>
-            Next
-          </Button>
+          {page < PAGES.length - 1 ? (
+            <Button size="regular" onClick={() => setPage(page + 1)}>
+              Next
+            </Button>
+          ) : (
+            /* Holds Next's slot open on the last page — the footer spaces three
+               equal columns, so without it the page count slides off centre. */
+            <div className="tv-event-log__footer-spacer" aria-hidden="true" />
+          )}
         </div>
       </div>
     </TechViewShell>

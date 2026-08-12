@@ -83,3 +83,8 @@
   text-align: center;
   color: var(--color-neutral-80);
 }
+
+/* Matches the regular button width it stands in for. */
+.tv-event-log__footer-spacer {
+  width: 180px;
+}
