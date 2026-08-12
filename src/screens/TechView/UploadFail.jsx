@@ -26,8 +26,10 @@ export default function UploadFail() {
           finishText="Done"
           onBack={() => navigate(TECH_VIEW_ROUTES.testPass)}
           onFinish={() => {
-            resetTestRuns();   // done with this battery
-            navigate(TECH_VIEW_ROUTES.login);
+            /* Straight to the next battery — finishing a test doesn't end the
+               operator's session, only logging out does. */
+            resetTestRuns();
+            navigate(TECH_VIEW_ROUTES.scanSerialNumber);
           }}
         />
       </div>

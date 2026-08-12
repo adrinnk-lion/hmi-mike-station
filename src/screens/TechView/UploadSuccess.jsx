@@ -30,8 +30,10 @@ export default function UploadSuccess() {
           finishText="Done"
           onBack={() => navigate(TECH_VIEW_ROUTES.testPass, { state: { uploaded: true } })}
           onFinish={() => {
-            resetTestRuns();   // done with this battery
-            navigate(TECH_VIEW_ROUTES.login);
+            /* Straight to the next battery — finishing a test doesn't end the
+               operator's session, only logging out does. */
+            resetTestRuns();
+            navigate(TECH_VIEW_ROUTES.scanSerialNumber);
           }}
         />
       </div>
