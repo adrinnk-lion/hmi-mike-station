@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TechViewShell from './TechViewShell';
 import TechViewProgress from './TechViewProgress';
@@ -12,36 +13,44 @@ import { TECH_VIEW_ROUTES } from './routes';
 import './TechViewScreens.css';
 import './HipotTest.css';
 
-/** Where the discharge stage gives out — the failure the Figma design shows. */
+/** Where the discharge stage gives out on the first attempt — the failure the Figma design shows. */
 const FAIL_PERCENT = 62;
 
 /*
-  The four stages, each claiming a slice of the run. `endState` is what the bar
-  becomes once its slice is done, so Discharge is where the run dies. Complete
-  never starts, because the run stops before reaching it.
+  The four stages, each claiming a slice of the run. On the attempt that fails,
+  the run stops mid-Discharge, so Discharge is the stage left unfinished and
+  Complete never starts.
 */
 const STAGES = [
-  { text: 'Ramp', startsAt: 0, doneAt: 20, endState: 'success' },
-  { text: 'Hold', startsAt: 20, doneAt: 45, endState: 'success' },
-  { text: 'Discharge', startsAt: 45, doneAt: FAIL_PERCENT, endState: 'error' },
-  { text: 'Complete', startsAt: 100, doneAt: 100, endState: 'success' },
+  { text: 'Ramp', startsAt: 0, doneAt: 20 },
+  { text: 'Hold', startsAt: 20, doneAt: 45 },
+  { text: 'Discharge', startsAt: 45, doneAt: 75 },
+  { text: 'Complete', startsAt: 75, doneAt: 100 },
 ];
 
-function stageState(stage, percent) {
-  if (percent >= stage.doneAt) return stage.endState;
-  if (percent >= stage.startsAt) return 'pending';
+function stageState(stage, percent, failed) {
+  if (percent >= stage.doneAt) return 'success';
+  /* Whichever stage the run died in is the one that reports the error. */
+  if (percent >= stage.startsAt) return failed ? 'error' : 'pending';
   return 'default';
 }
 
 export default function HipotTest() {
   const navigate = useNavigate();
-  const { percent, finished, readings, restart } = useTestRun({ stopAtPercent: FAIL_PERCENT });
+  /* First attempt fails partway; a retry runs clean to the end. */
+  const [retrying, setRetrying] = useState(false);
 
-  /* The run tops out at the failure point, so it never passes — Next stays
-     locked. Expressed against 100 so it unlocks on its own if the test is ever
-     made to complete. */
+  const { percent, finished, readings, restart } = useTestRun({
+    stopAtPercent: retrying ? 100 : FAIL_PERCENT,
+  });
+
   const passed = percent >= 100;
-  const failed = finished;
+  const failed = finished && !passed;
+
+  const handleTestAgain = () => {
+    setRetrying(true);
+    restart();
+  };
 
   return (
     <TechViewShell>
@@ -50,17 +59,17 @@ export default function HipotTest() {
         <PageText
           variant="pageTitle"
           title="HiPot Test"
-          text={`Status: ${percent}% Complete`}
+          text={passed ? 'Status: Test Complete' : `Status: ${percent}% Complete`}
           className="tv-hipot__title"
         />
         <div className="tv-row tv-row--gap-12 tv-hipot__meter">
           <ProgressBar state={failed ? 'warning' : 'success'} percent={percent} />
-          <RoundBadge state={failed ? 'error' : 'running'} size="small" />
+          <RoundBadge state={failed ? 'error' : passed ? 'pass' : 'running'} size="small" />
         </div>
         <div className="tv-row tv-row--top tv-hipot__body">
           <div className="tv-block tv-block--gap-12 tv-hipot__testbars">
             {STAGES.map((stage) => {
-              const state = stageState(stage, percent);
+              const state = stageState(stage, percent, failed);
               return (
                 <StatusBar
                   key={stage.text}
@@ -68,7 +77,7 @@ export default function HipotTest() {
                   text={stage.text}
                   button={state === 'error'}
                   buttonText="Test Again"
-                  onButtonClick={restart}
+                  onButtonClick={handleTestAgain}
                 />
               );
             })}
